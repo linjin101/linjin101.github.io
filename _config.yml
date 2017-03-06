@@ -12,8 +12,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+## If your site is put in a subdirectory, set url as 'http://linjin101.com/child' and root as '/child/'
+url: http://linjin101.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
