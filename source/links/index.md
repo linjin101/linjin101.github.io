@@ -1,5 +1,5 @@
 ---
-title: links
+title: 友情链接
 date: 2017-03-07 13:46:55
 categories:
 - hexo
