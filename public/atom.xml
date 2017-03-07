@@ -292,6 +292,36 @@ npm WARN optiona
   </entry>
   
   <entry>
+    <title>git无法pull仓库</title>
+    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/"/>
+    <id>http://linjin101.com/2017/03/06/git无法pull仓库refusing to merge unrelated histories/</id>
+    <published>2017-03-06T15:46:55.000Z</published>
+    <updated>2017-03-07T12:46:29.024Z</updated>
+    
+    <content type="html"><![CDATA[<p>git无法pull仓库refusing to merge unrelated histories</p>
+<p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/lindexi_gd/article/details/52554159</a></p>
+<p>本文讲的是把Git在最新2.9.2，合并pull两个不同的项目，出现的问题如何去解决fatal: refusing to merge unrelated histories</p>
+<p>我在Github新建一个仓库，写了License，然后把本地一个写了很久仓库上传。</p>
+<p>先pull，因为两个仓库不同，发现refusing to merge unrelated histories，无法pull</p>
+<p>因为他们是两个不同的项目，要把两个不同的项目合并，git需要添加一句代码，在git pull，这句代码是在git 2.9.2版本发生的，最新的版本需要添加–allow-unrelated-histories</p>
+<p>假如我们的源是origin，分支是master，那么我们 需要这样写<br><code>git pull origin master --allow-unrelated-histories</code><br>需要知道，我们的源可以是本地的路径</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git无法pull仓库refusing to merge unrelated histories&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn
+    
+    </summary>
+    
+      <category term="git" scheme="http://linjin101.com/categories/git/"/>
+    
+    
+      <category term="git无法pull" scheme="http://linjin101.com/tags/git%E6%97%A0%E6%B3%95pull/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo安装配置</title>
     <link href="http://linjin101.com/2017/03/06/hexo%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>http://linjin101.com/2017/03/06/hexo安装配置/</id>
@@ -349,36 +379,6 @@ npm WARN optiona
     
       <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>git无法pull仓库</title>
-    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/"/>
-    <id>http://linjin101.com/2017/03/06/git无法pull仓库refusing to merge unrelated histories/</id>
-    <published>2017-03-06T15:46:55.000Z</published>
-    <updated>2017-03-07T12:46:29.024Z</updated>
-    
-    <content type="html"><![CDATA[<p>git无法pull仓库refusing to merge unrelated histories</p>
-<p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/lindexi_gd/article/details/52554159</a></p>
-<p>本文讲的是把Git在最新2.9.2，合并pull两个不同的项目，出现的问题如何去解决fatal: refusing to merge unrelated histories</p>
-<p>我在Github新建一个仓库，写了License，然后把本地一个写了很久仓库上传。</p>
-<p>先pull，因为两个仓库不同，发现refusing to merge unrelated histories，无法pull</p>
-<p>因为他们是两个不同的项目，要把两个不同的项目合并，git需要添加一句代码，在git pull，这句代码是在git 2.9.2版本发生的，最新的版本需要添加–allow-unrelated-histories</p>
-<p>假如我们的源是origin，分支是master，那么我们 需要这样写<br><code>git pull origin master --allow-unrelated-histories</code><br>需要知道，我们的源可以是本地的路径</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;git无法pull仓库refusing to merge unrelated histories&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn
-    
-    </summary>
-    
-      <category term="git" scheme="http://linjin101.com/categories/git/"/>
-    
-    
-      <category term="git无法pull" scheme="http://linjin101.com/tags/git%E6%97%A0%E6%B3%95pull/"/>
     
   </entry>
   
