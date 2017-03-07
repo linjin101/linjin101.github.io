@@ -1,0 +1,11 @@
+# robots.txt generated at http://linjin101.com/robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/ 
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /css/
+Disallow: /vendors/
+Sitemap: http://linjin101.com/sitemap.xml

@@ -6,12 +6,12 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "Hexo, linjin101"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: false
 
 # Specify the date when the site was setup
 since: 2017
@@ -134,8 +134,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-social:
-  LinkLabel: Link
+#social:
+#  LinkLabel: Link
 
 
 # Social Links Icons
@@ -200,11 +200,12 @@ sidebar:
 
 
 # Blog rolls
-#links_title: Links
+links_title: Links
 #links_layout: block
 #links_layout: inline
-#links:
-#  Title: http://linjin101.com/links/
+links:
+  Title: http://linjin101.com/links/
+  MPU: http://blog.csdn.net/mpu/
 
 
 # ---------------------------------------------------------------
@@ -272,8 +273,8 @@ highlight_theme: normal
 
 # MathJax Support
 mathjax:
-  enable: false
-  per_page: false
+  enable: true
+  per_page: true
   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 
@@ -284,7 +285,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: linjin101
 
 # Disqus
 #disqus_shortname:
@@ -316,7 +317,10 @@ mathjax:
 #add_this_id:
 
 # Share
-#duoshuo_share: true
+duoshuo_share: true
+
+# hot comment
+duoshuo_hotartical: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -440,7 +444,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
 
 # External URL with BASE64 encrypt & decrypt
 # Usage: {% exturl text url "title" %}
