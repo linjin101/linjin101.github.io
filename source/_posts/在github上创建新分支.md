@@ -1,7 +1,11 @@
 ---
 title: 在github上创建新分支
 date: 2017-03-07 00:33:14
-tags: github 创建分支
+categories:
+- git
+tags: 
+- github
+- 创建分
 ---
 [http://blog.csdn.net/guang11cheng/article/details/37757201](http://note.youdao.com/)
 [http://blog.csdn.net/top_code/article/details/51931916](http://note.youdao.com/)

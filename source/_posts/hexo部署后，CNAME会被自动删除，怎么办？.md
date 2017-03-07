@@ -1,7 +1,11 @@
 ---
 title: hexo部署后，CNAME会被自动删除，怎么办？
 date: 2017-03-07 00:33:14
-tags: hexo部署 CNAME
+categories:
+- hexo
+tags: 
+- hexo部署
+- CNAME
 ---
 
 将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。

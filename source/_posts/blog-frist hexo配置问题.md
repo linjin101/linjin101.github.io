@@ -1,7 +1,10 @@
 ---
 title: blog-frist hexo配置问题
 date: 2017-03-07 00:33:14
-tags: hexo 配置问题
+categories:
+- hexo
+tags: 
+- hexo配置问题
 ---
 [https://www.zhihu.com/question/38219432](http://note.youdao.com/)
 
