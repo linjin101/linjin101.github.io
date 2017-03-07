@@ -1,7 +1,7 @@
 ---
-title: github配置
+title: hexo安装配置
 date: 2017-03-06 23:46:55
-tags: github报错
+tags: hexo 安装配置
 ---
 win10安装报错,提示需要管理员账户.
 后来修改权限半天,而且也切换管理员账户还是出错.误解搜索错误解决办法,最后替换淘宝的源解决问题.
@@ -59,15 +59,3 @@ npm --registry https://registry.npm.taobao.org info underscore
 
 **3.编辑 ~/.npmrc 加入下面内容**  
 registry = https://registry.npm.taobao.org  
-
-
-
-
-
-
-
-
-
-
-
-
