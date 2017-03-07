@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `hexo-site/source/` directory.
-favicon: /favicon.ico
+favicon: favicon.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Hexo, linjin101"
@@ -204,7 +204,7 @@ links_title: Links
 #links_layout: block
 #links_layout: inline
 links:
-  Title: http://linjin101.com/links/
+#  Title: http://linjin101.com/links/
   MPU: http://blog.csdn.net/mpu/
 
 
