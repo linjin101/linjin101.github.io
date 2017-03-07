@@ -1,7 +1,7 @@
 ---
 title: git无法pull仓库
 date: 2017-03-06 23:46:55
-tags: git无法pull仓库
+tags:  git无法pull仓库
 ---
 git无法pull仓库refusing to merge unrelated histories
 

@@ -1,7 +1,7 @@
 ---
 title: github配置
 date: 2017-03-06 23:46:55
-tags: github报错
+tags: "github报错"
 ---
 git无法pull仓库refusing to merge unrelated histories
 
