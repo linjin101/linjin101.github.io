@@ -16,7 +16,10 @@ tags:
 [GtiHub博客theme-next.iissnan主题](http://theme-next.iissnan.com/)  
 
 
-一些GitHub博客:  
+收藏博客:  
 
-[zhangjh](http://www.5941740.cn/about/)  
+[但丁笔记](http://www.5941740.cn/about/)  
 
+[小猛的产品设计](http://www.54xiaomeng.com/)
+
+[BRD、MRD 和 PRD](https://www.zhihu.com/question/19655491) 

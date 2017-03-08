@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linjin101.com/"/>
-  <updated>2017-03-08T06:17:13.227Z</updated>
+  <updated>2017-03-08T07:55:43.782Z</updated>
   <id>http://linjin101.com/</id>
   
   <author>
@@ -16,15 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>github下载问题处理</title>
+    <link href="http://linjin101.com/2017/03/08/github%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/"/>
+    <id>http://linjin101.com/2017/03/08/github下载问题处理/</id>
+    <published>2017-03-08T07:48:46.000Z</published>
+    <updated>2017-03-08T07:55:43.782Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://jingyan.baidu.com/article/f79b7cb367e72e9145023e40.html?st=2&amp;os=0&amp;bd_page_type=1&amp;net_type=1" target="_blank" rel="external">http://jingyan.baidu.com/article/f79b7cb367e72e9145023e40.html?st=2&amp;os=0&amp;bd_page_type=1&amp;net_type=1</a></p>
+<p>国内同步github库,通过国内库拉取文件超快</p>
+<p><a href="https://coding.net/u/linjin101/p/hexo-theme-yelee/git" target="_blank" rel="external">https://coding.net/u/linjin101/p/hexo-theme-yelee/git</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/f79b7cb367e72e9145023e40.html?st=2&amp;amp;os=0&amp;amp;bd_page_type=1&amp;amp;net_type=1&quot; target=&quot;_blank&quot; 
+    
+    </summary>
+    
+      <category term="github" scheme="http://linjin101.com/categories/github/"/>
+    
+    
+      <category term="github下载慢" scheme="http://linjin101.com/tags/github%E4%B8%8B%E8%BD%BD%E6%85%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>产品设计体会功能列表：Feature List</title>
     <link href="http://linjin101.com/2017/03/08/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E4%BD%93%E4%BC%9A%EF%BC%881009%EF%BC%89%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8%EF%BC%9AFeature-List/"/>
     <id>http://linjin101.com/2017/03/08/产品设计体会（1009）功能列表：Feature-List/</id>
     <published>2017-03-08T05:54:41.000Z</published>
-    <updated>2017-03-08T06:17:13.227Z</updated>
+    <updated>2017-03-08T10:06:57.235Z</updated>
     
     <content type="html"><![CDATA[<p>只要需求采集的功夫做足了，你就会发现需求超多，必须每隔一段时间整理一次，通常我们叫它功能列表：Feature List,说一下自己感觉这个玩意应该怎么做，其中吸取了叶老大原来的表格还有网上一些相关文章的内容。这个表是用Excel做的，一些简单的技巧，比如条件格式、筛选、单元格有效性、单元格锁定、隐藏是必须的基本功，另外我比较喜欢把表格弄好看点，这样整天对着就不会闷死嘞，如图。</p>
 <p><img src="http://img1.51cto.com/attachment/200903/200903091236565232140.jpg" alt="image"></p>
 <p>看不清吧？那就对了，不好意思有些信息不能公开。<br>表格中每一行是一个功能，而每列都是这个功能的某个属性： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">模块--&gt;功能</div><div class="line">功能--&gt;商业价值</div><div class="line">商业价值--&gt;开发量</div><div class="line">开发量--&gt;性价比</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -140,65 +166,6 @@
   </entry>
   
   <entry>
-    <title>在github上创建新分支</title>
-    <link href="http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
-    <id>http://linjin101.com/2017/03/07/在github上创建新分支/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2017-03-07T08:43:05.989Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/guang11cheng/article/details/37757201</a><br><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/top_code/article/details/51931916</a><br><a href="http://note.youdao.com/" target="_blank" rel="external">http://www.cnblogs.com/horanly/p/6265182.html
-</a></p>
-<p>在github上创建仓库：<br><code>Create a new repository on the command line</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/BrentHuang/MyRepo.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<p>在本地新建一个分支： <code>git branch Branch1</code><br>切换到你的新分支: <code>git checkout Branch1</code><br>将新分支发布在github上： <code>git push origin Branch1</code><br>在本地删除一个分支： <code>git branch -d Branch1</code><br>在github远程端删除一个分支： <code>git push origin :Branch1</code><br>(分支名前的冒号代表删除)</p>
-<p>直接使用git pull和git push的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Git branch --set-upstream-to=origin/master master </div><div class="line">git branch --set-upstream-to=origin/ThirdParty ThirdParty</div><div class="line">git config --global push.default matching</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/guang11cheng/article/details/37757201&lt;/a&gt;&lt;br&gt;&lt;a hre
-    
-    </summary>
-    
-      <category term="git" scheme="http://linjin101.com/categories/git/"/>
-    
-    
-      <category term="github" scheme="http://linjin101.com/tags/github/"/>
-    
-      <category term="创建分" scheme="http://linjin101.com/tags/%E5%88%9B%E5%BB%BA%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo部署后，CNAME会被自动删除，怎么办？</title>
-    <link href="http://linjin101.com/2017/03/07/hexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/"/>
-    <id>http://linjin101.com/2017/03/07/hexo部署后，CNAME会被自动删除，怎么办？/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2017-03-07T08:42:52.928Z</updated>
-    
-    <content type="html"><![CDATA[<p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。</p>
-<p>如图：<br>CNAME README都可以放在Source文件夹下，每次上传就不会消失了</p>
-<p><img src="https://pic4.zhimg.com/93a311be4f651f8cd639233e544b826b_b.jpg" alt="image"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。&lt;/p&gt;
-&lt;p&gt;如图：&lt;br&gt;CNAME README都可以放在Source文件夹下，每次上传就不会消失了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
-    
-    
-      <category term="hexo部署" scheme="http://linjin101.com/tags/hexo%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="CNAME" scheme="http://linjin101.com/tags/CNAME/"/>
-    
-  </entry>
-  
-  <entry>
     <title>HTML4和HTML5的10个关键区别</title>
     <link href="http://linjin101.com/2017/03/07/HTML4%20%E5%92%8C%20HTML5%20%E7%9A%8410%E4%B8%AA%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB/"/>
     <id>http://linjin101.com/2017/03/07/HTML4 和 HTML5 的10个关键区别/</id>
@@ -237,6 +204,35 @@
   </entry>
   
   <entry>
+    <title>hexo部署后，CNAME会被自动删除，怎么办？</title>
+    <link href="http://linjin101.com/2017/03/07/hexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/"/>
+    <id>http://linjin101.com/2017/03/07/hexo部署后，CNAME会被自动删除，怎么办？/</id>
+    <published>2017-03-06T16:33:14.000Z</published>
+    <updated>2017-03-07T08:42:52.928Z</updated>
+    
+    <content type="html"><![CDATA[<p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。</p>
+<p>如图：<br>CNAME README都可以放在Source文件夹下，每次上传就不会消失了</p>
+<p><img src="https://pic4.zhimg.com/93a311be4f651f8cd639233e544b826b_b.jpg" alt="image"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。&lt;/p&gt;
+&lt;p&gt;如图：&lt;br&gt;CNAME README都可以放在Source文件夹下，每次上传就不会消失了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pic
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
+    
+    
+      <category term="hexo部署" scheme="http://linjin101.com/tags/hexo%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="CNAME" scheme="http://linjin101.com/tags/CNAME/"/>
+    
+  </entry>
+  
+  <entry>
     <title>blog-frist hexo配置问题</title>
     <link href="http://linjin101.com/2017/03/07/blog-frist%20hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
     <id>http://linjin101.com/2017/03/07/blog-frist hexo配置问题/</id>
@@ -265,6 +261,36 @@
     
     
       <category term="hexo配置问题" scheme="http://linjin101.com/tags/hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在github上创建新分支</title>
+    <link href="http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
+    <id>http://linjin101.com/2017/03/07/在github上创建新分支/</id>
+    <published>2017-03-06T16:33:14.000Z</published>
+    <updated>2017-03-07T08:43:05.989Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/guang11cheng/article/details/37757201</a><br><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/top_code/article/details/51931916</a><br><a href="http://note.youdao.com/" target="_blank" rel="external">http://www.cnblogs.com/horanly/p/6265182.html
+</a></p>
+<p>在github上创建仓库：<br><code>Create a new repository on the command line</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/BrentHuang/MyRepo.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>在本地新建一个分支： <code>git branch Branch1</code><br>切换到你的新分支: <code>git checkout Branch1</code><br>将新分支发布在github上： <code>git push origin Branch1</code><br>在本地删除一个分支： <code>git branch -d Branch1</code><br>在github远程端删除一个分支： <code>git push origin :Branch1</code><br>(分支名前的冒号代表删除)</p>
+<p>直接使用git pull和git push的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Git branch --set-upstream-to=origin/master master </div><div class="line">git branch --set-upstream-to=origin/ThirdParty ThirdParty</div><div class="line">git config --global push.default matching</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/guang11cheng/article/details/37757201&lt;/a&gt;&lt;br&gt;&lt;a hre
+    
+    </summary>
+    
+      <category term="git" scheme="http://linjin101.com/categories/git/"/>
+    
+    
+      <category term="github" scheme="http://linjin101.com/tags/github/"/>
+    
+      <category term="创建分" scheme="http://linjin101.com/tags/%E5%88%9B%E5%BB%BA%E5%88%86/"/>
     
   </entry>
   
@@ -330,11 +356,11 @@ npm WARN optiona
   </entry>
   
   <entry>
-    <title>github配置</title>
-    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93/"/>
-    <id>http://linjin101.com/2017/03/06/git无法pull仓库/</id>
+    <title>git无法pull仓库</title>
+    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/"/>
+    <id>http://linjin101.com/2017/03/06/git无法pull仓库refusing to merge unrelated histories/</id>
     <published>2017-03-06T15:46:55.000Z</published>
-    <updated>2017-03-07T08:42:35.960Z</updated>
+    <updated>2017-03-07T08:42:47.089Z</updated>
     
     <content type="html"><![CDATA[<p>git无法pull仓库refusing to merge unrelated histories</p>
 <p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/lindexi_gd/article/details/52554159</a></p>
@@ -352,10 +378,10 @@ npm WARN optiona
     
     </summary>
     
-      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
+      <category term="git" scheme="http://linjin101.com/categories/git/"/>
     
     
-      <category term="github报错" scheme="http://linjin101.com/tags/github%E6%8A%A5%E9%94%99/"/>
+      <category term="git无法pull" scheme="http://linjin101.com/tags/git%E6%97%A0%E6%B3%95pull/"/>
     
   </entry>
   
@@ -423,11 +449,11 @@ npm WARN optiona
   </entry>
   
   <entry>
-    <title>git无法pull仓库</title>
-    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/"/>
-    <id>http://linjin101.com/2017/03/06/git无法pull仓库refusing to merge unrelated histories/</id>
+    <title>github配置</title>
+    <link href="http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93/"/>
+    <id>http://linjin101.com/2017/03/06/git无法pull仓库/</id>
     <published>2017-03-06T15:46:55.000Z</published>
-    <updated>2017-03-07T08:42:47.089Z</updated>
+    <updated>2017-03-07T08:42:35.960Z</updated>
     
     <content type="html"><![CDATA[<p>git无法pull仓库refusing to merge unrelated histories</p>
 <p><a href="http://note.youdao.com/" target="_blank" rel="external">http://blog.csdn.net/lindexi_gd/article/details/52554159</a></p>
@@ -445,10 +471,10 @@ npm WARN optiona
     
     </summary>
     
-      <category term="git" scheme="http://linjin101.com/categories/git/"/>
+      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
     
     
-      <category term="git无法pull" scheme="http://linjin101.com/tags/git%E6%97%A0%E6%B3%95pull/"/>
+      <category term="github报错" scheme="http://linjin101.com/tags/github%E6%8A%A5%E9%94%99/"/>
     
   </entry>
   
