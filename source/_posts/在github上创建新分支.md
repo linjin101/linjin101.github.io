@@ -5,7 +5,7 @@ categories:
 - git
 tags: 
 - github
-- 创建分
+- 建新分支
 ---
 [http://blog.csdn.net/guang11cheng/article/details/37757201](http://note.youdao.com/)
 [http://blog.csdn.net/top_code/article/details/51931916](http://note.youdao.com/)

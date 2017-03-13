@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[hexo-admin安装以及问题解决]]></title>
+      <url>%2F2017%2F03%2F13%2Fhexo-admin%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%2F</url>
+      <content type="text"><![CDATA[1.安装hexo和创建一个博客12345npm install -g hexocd ~/hexo init my-blogcd my-blognpm install 2.安装hexo-admin和本地运行123npm install --save hexo-adminhexo server -dopen http://localhost:4000/admin/ (hexo-admin管理只能在本地用,github上面只有静态页面不能进行管理,切记!!!) 3.密码保护如果你的hexo-admin需要一些保护密码，你只需要添加一些你的hexo配置变量到配置文件_config.yml：1234admin: username: myfavoritename password_hash: be121740bf988b2225a313fa1f107ca1 secret: a secret something 4.安装问题处理123456$ npm install --save hexo-adminnpm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issuehexo-site@0.0.0 E:\git\linjin101.github.ionpm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents):npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.1: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;) 5.解决12npm install minimatch@&quot;3.0.2&quot; npm update -d 如果还有问题:升级后依旧报错,只好重装: 123npm update minimatchnpm -v minimatchnpm install -g npm@3 清理,生成,本地启动 hexo clean &amp;&amp; hexo g &amp;&amp; hexo s 浏览器打开http://localhost:4000/admin/ 6.NPM介绍:是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：允许用户从NPM服务器下载别人编写的第三方包到本地使用。允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[github下载问题处理]]></title>
       <url>%2F2017%2F03%2F08%2Fgithub%E4%B8%8B%E8%BD%BD%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86%2F</url>
       <content type="text"><![CDATA[http://jingyan.baidu.com/article/f79b7cb367e72e9145023e40.html?st=2&amp;os=0&amp;bd_page_type=1&amp;net_type=1 国内同步github库,通过国内库拉取文件超快 https://coding.net/u/linjin101/p/hexo-theme-yelee/git]]></content>
@@ -38,13 +45,6 @@
 
     
     <entry>
-      <title><![CDATA[hexo部署后，CNAME会被自动删除，怎么办？]]></title>
-      <url>%2F2017%2F03%2F07%2Fhexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F%2F</url>
-      <content type="text"><![CDATA[将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。 如图：CNAME README都可以放在Source文件夹下，每次上传就不会消失了]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[blog-frist hexo配置问题]]></title>
       <url>%2F2017%2F03%2F07%2Fblog-frist%20hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[https://www.zhihu.com/question/38219432 贴上一篇我之前搭建博客时，参考的教程 引用自：Xuanwo’s Blog// 史上最详细的Hexo博客搭建图文教程 配置Deployment首先，你需要为自己配置身份信息，打开命令行，然后输入：git config –global user.name “yourname”git config –global user.email “youremail”同样在_config.yml文件中，找到Deployment，然后按照如下修改：deploy:type: gitrepo: git@github.com:yourname/yourname.github.io.gitbranch: master如果使用git方式进行部署，执行npm install hexo-deployer-git –save来安装所需的插件然后在当前目录打开命令行，输入：hexo d 随后按照提示，分别输入自己的Github账号用户名和密码，开始上传。你看看会不会是这边的配置出现了问题。 作者：孙武军链接：https://www.zhihu.com/question/38219432/answer/75389052来源：知乎著作权归作者所有，转载请联系作者获得授权。 ======================================================= 提交项目，部署 继续在本目录命令行安装部署工具（方便以后更新）npm install hexo-deployer-git -save1、初始化本地仓库：git init2、连接远程仓库：如果是第一次使用git，在使用git的时候会提示输入用户名和密码，用户名是自己的注册邮箱。git remote add origin https://github.com/wapchief/wapchief.github.io.git3、发布hexo到github pagehexo clean &amp;&amp; hexo g &amp;&amp; hexo d4、添加文件到本地仓库git add5、提交声明git commit -m &#39;内容&#39;6、推送到远程仓库（github）git push origin这里建议创建一个新的分支hexo，用于管理hexo文件。 提交的的时候只提交hexo网站html、css、等源文件。而默认的master用来部署更新项目,具体可以看我的github地址分支情况https://github.com/wapchief/wapchief.github.io创建并切换到新建分支：git checkout -b hexo将分支推送到远程仓库：git push origin hexo这时打开网站就能看到效果了。记得提交以后去github上把hexo分支设置默认，以后写文章等都要部署。文章在hexo目录下的\source_posts文件夹中，是md格式，也就是Markdown格式。以后可以用以下命令部署。也就是第三步 //等于一次性执行了，清空、刷新、部署三个命令hexo clean &amp;&amp; hexo g &amp;&amp; hexo d如果部署时不clean，可能之前修改的文章还存在。包括一些配置等，有时候部署完成后并没有改变，其实是缓存未清除。]]></content>
@@ -55,6 +55,13 @@
       <title><![CDATA[在github上创建新分支]]></title>
       <url>%2F2017%2F03%2F07%2F%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF%2F</url>
       <content type="text"><![CDATA[http://blog.csdn.net/guang11cheng/article/details/37757201http://blog.csdn.net/top_code/article/details/51931916http://www.cnblogs.com/horanly/p/6265182.html 在github上创建仓库：Create a new repository on the command line 123456touch README.mdgit initgit add README.mdgit commit -m &quot;first commit&quot;git remote add origin https://github.com/BrentHuang/MyRepo.gitgit push -u origin master 在本地新建一个分支： git branch Branch1切换到你的新分支: git checkout Branch1将新分支发布在github上： git push origin Branch1在本地删除一个分支： git branch -d Branch1在github远程端删除一个分支： git push origin :Branch1(分支名前的冒号代表删除) 直接使用git pull和git push的设置123Git branch --set-upstream-to=origin/master master git branch --set-upstream-to=origin/ThirdParty ThirdPartygit config --global push.default matching]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[hexo部署后，CNAME会被自动删除，怎么办？]]></title>
+      <url>%2F2017%2F03%2F07%2Fhexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F%2F</url>
+      <content type="text"><![CDATA[将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。 如图：CNAME README都可以放在Source文件夹下，每次上传就不会消失了]]></content>
     </entry>
 
     

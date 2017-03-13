@@ -201,11 +201,12 @@ sidebar:
 
 # Blog rolls
 links_title: Links
-#links_layout: block
+links_layout: block
 #links_layout: inline
 links:
 #  Title: http://linjin101.com/links/
-  MPU: http://blog.csdn.net/mpu/
+  CSDN: http://blog.csdn.net/mpu/
+  51CTO: http://linjin101.blog.51cto.com
 
 
 # ---------------------------------------------------------------
