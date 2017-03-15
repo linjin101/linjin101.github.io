@@ -1,14 +1,12 @@
----
 title: 友情链接
-date: 2017-03-07 13:46:55
 categories:
-- hexo
+  - hexo
 tags:
-- git
-- hexo
-- github
+  - git
+  - hexo
+  - github
+date: 2017-03-07 13:46:55
 ---
-
 [Pro Git教程](http://iissnan.com/progit/)  
 
 [Hexo官方文档](https://hexo.io/zh-cn/docs/)  
@@ -22,4 +20,6 @@ tags:
 
 [小猛的产品设计](http://www.54xiaomeng.com/)
 
-[BRD、MRD 和 PRD](https://www.zhihu.com/question/19655491) 
+[BRD、MRD 和 PRD](https://www.zhihu.com/question/19655491)
+
+[刘坤阿里花名‘念纪’](https://blog.cnbluebox.com/)
