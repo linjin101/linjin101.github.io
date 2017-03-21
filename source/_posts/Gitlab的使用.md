@@ -18,7 +18,7 @@ svn是集中化的版本控制系统, 只有一个单一的集中管理的服务
 git是分布式的版本控制系统, 每一个终端都是一个仓库，客户端并不只提取最新版本的文件快照，而是把原始的代码仓库完整地镜像下来。每一次的提取操作，实际上都是一次对代码仓库的完整备份。
 
 ##### 集中式版本控制： 
-![upload successful](/images\pasted-2.png)
+![upload successful](/images/pasted-2.png)
 ##### 分布式版本控制：
 ![upload successful](/images/pasted-1.png) 
 

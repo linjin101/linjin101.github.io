@@ -73,9 +73,6 @@ search:
   format: html
   limit: 10000
 
-#hexo-generator-json-feed
-jsonFeed:
-  limit: 1000
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
