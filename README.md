@@ -9,7 +9,7 @@
 ``hexo clean && hexo g && hexo d``
 
 ####本地测试运行  
-`` hexo s
-INFO  Start processing
-INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
-``
+``` hexo s  
+INFO  Start processing  
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.  
+```
