@@ -13,5 +13,5 @@
 ```Press Ctrl+C to stop.  ```  
 
 ####本地管理后台  
-[http://localhost:4000/admin/](ttp://localhost:4000/admin/)  
+[http://localhost:4000/admin/](http://localhost:4000/admin/)  
 ```Press Ctrl+C to stop.  ```  
