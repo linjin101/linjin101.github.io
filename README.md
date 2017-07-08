@@ -11,11 +11,11 @@
 ####本地测试运行  
 ``` hexo s  
 INFO  Start processing  
-INFO  Hexo is running at [http://localhost:4000/]  
+INFO  Hexo is running at [link](http://localhost:4000/)  
 Press Ctrl+C to stop.  
 ```
 
 ####本地管理后台  
 ```
-[http://localhost:4000/admin/]
+[link](http://localhost:4000/admin/)
 ```
