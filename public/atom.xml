@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linjin101.com/"/>
-  <updated>2018-03-21T10:34:42.629Z</updated>
+  <updated>2018-03-21T11:03:28.955Z</updated>
   <id>http://linjin101.com/</id>
   
   <author>
@@ -20,11 +20,14 @@
     <link href="http://linjin101.com/2018/03/21/%E8%82%A1%E5%B8%82%E8%A1%8C%E6%83%85%E7%9A%84%E7%9C%9F%E8%B0%9B/"/>
     <id>http://linjin101.com/2018/03/21/股市行情的真谛/</id>
     <published>2018-03-21T02:38:00.000Z</published>
-    <updated>2018-03-21T10:34:42.629Z</updated>
+    <updated>2018-03-21T11:03:28.955Z</updated>
     
     <content type="html"><![CDATA[<p>本书英文：《TRUTH OF THE STOCK TAPE》,中文旧版翻译为《江恩股市定律》<br>江恩的介绍看：<a href="http://linjin101.com/2017/09/24/%E5%A4%A9%E4%BD%BF%E4%B8%8E%E6%81%B6%E9%AD%94%E7%9A%84%E6%88%98%E4%BA%89/">天使与恶魔的战争-读书笔记01</a>  </p>
-<p>  每年都有巨额资金因为愚蠢的决策和傻瓜版的投资而打水漂，这些无畏的损失可以追溯一个原因，就是缺乏投资知识。人们生病知道自己知识不足，而去找医生、专家咨询，但是处理投资确经常会毫无准备就不假思索的将成千上万的资金投入到他们无所不知的企业中去。所以，如果他们损失惨重，那也理所当然，丝毫不足为奇了。本书的目的旨在强调和阐明那些具有实践价值的基本原理，即使仅仅只能让几个人停止赌博式的投资而踏上保守投机和投资的道路，就算笔者的工作没有白费。  —威廉.D.江恩<br>  <code>关于看盘，每天盯盘过于关注分时图的涨跌，上上下下会影响情绪而且毫无价值。每天交易一次的频繁交易累计的佣金造成百分之几十的损失非常可怕。除非顶尖高手不要尝试频繁交易。</code><br>  <code>股票能够贴现未来事件，股票价格的波动，一般来说是由在普通公众知道之前很久就已经存在的诸多因素说造成的结果或产生的影响。</code><br>  <code>投资者必备的素质：耐心、勇气、知识、健康和休息</code></p>
-<h4 id="成功交易12大规则："><a href="#成功交易12大规则：" class="headerlink" title="成功交易12大规则："></a>成功交易12大规则：</h4><p> 一、所需资金本量<br> 二、限制自己的风险<br> 三、过度交易是最大的敌人<br> 四、永远不让盈利变成损失<br> 五、不要逆势而为<br> 六、拿不准就退出<br> 七、只选择活跃的股票进行交易<br> 八、均摊风险<br> 九、确定买入或卖出的价格和点位<br> 十、获利的时机<br> 十一、累计盈余<br> 十二、为分红买进</p>
+<p>  每年都有巨额资金因为愚蠢的决策和傻瓜版的投资而打水漂，这些无畏的损失可以追溯一个原因，就是缺乏投资知识。人们生病知道自己知识不足，而去找医生、专家咨询，但是处理投资确经常会毫无准备就不假思索的将成千上万的资金投入到他们无所不知的企业中去。所以，如果他们损失惨重，那也理所当然，丝毫不足为奇了。本书的目的旨在强调和阐明那些具有实践价值的基本原理，即使仅仅只能让几个人停止赌博式的投资而踏上保守投机和投资的道路，就算笔者的工作没有白费。  —威廉.D.江恩  </p>
+<p>  <strong>关于看盘，每天盯盘过于关注分时图的涨跌，上上下下会影响情绪而且毫无价值。每天交易一次的频繁交易累计的佣金造成百分之几十的损失非常可怕。除非顶尖高手不要尝试频繁交易。</strong>  </p>
+<p>   <strong>股票能够贴现未来事件，股票价格的波动，一般来说是由在普通公众知道之前很久就已经存在的诸多因素说造成的结果或产生的影响。</strong> </p>
+<p>   <strong>投资者必备的素质：耐心、勇气、知识、健康和休息</strong>  </p>
+<h4 id="成功交易12大规则："><a href="#成功交易12大规则：" class="headerlink" title="成功交易12大规则："></a>成功交易12大规则：</h4><p> 一、所需资金本量<br> 二、限制自己的风险<br> 三、过度交易是最大的敌人<br> 四、永远不让盈利变成损失<br> 五、不要逆势而为<br> 六、拿不准就退出<br> 七、只选择活跃的股票进行交易<br> 八、均摊风险<br> 九、确定买入或卖出的价格和点位<br> 十、获利的时机<br> 十一、累计盈余<br> 十二、不要为了分红买进</p>
 ]]></content>
     
     <summary type="html">
@@ -867,6 +870,36 @@ push代码到服务器 git push origin master
   </entry>
   
   <entry>
+    <title>在github上创建新分支</title>
+    <link href="http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
+    <id>http://linjin101.com/2017/03/07/在github上创建新分支/</id>
+    <published>2017-03-06T16:33:14.000Z</published>
+    <updated>2018-03-08T12:09:32.322Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/guang11cheng/article/details/37757201</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/top_code/article/details/51931916</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://www.cnblogs.com/horanly/p/6265182.html
+</a></p>
+<p>在github上创建仓库：<br><code>Create a new repository on the command line</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/BrentHuang/MyRepo.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>在本地新建一个分支： <code>git branch Branch1</code><br>切换到你的新分支: <code>git checkout Branch1</code><br>将新分支发布在github上： <code>git push origin Branch1</code><br>在本地删除一个分支： <code>git branch -d Branch1</code><br>在github远程端删除一个分支： <code>git push origin :Branch1</code><br>(分支名前的冒号代表删除)</p>
+<p>直接使用git pull和git push的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Git branch --set-upstream-to=origin/master master </div><div class="line">git branch --set-upstream-to=origin/ThirdParty ThirdParty</div><div class="line">git config --global push.default matching</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/guang11cheng/article/details/37757201&lt;/a&gt;&lt;br&gt;&lt;a hre
+    
+    </summary>
+    
+      <category term="git" scheme="http://linjin101.com/categories/git/"/>
+    
+    
+      <category term="github" scheme="http://linjin101.com/tags/github/"/>
+    
+      <category term="建新分支" scheme="http://linjin101.com/tags/%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>blog-frist hexo配置问题</title>
     <link href="http://linjin101.com/2017/03/07/blog-frist%20hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
     <id>http://linjin101.com/2017/03/07/blog-frist hexo配置问题/</id>
@@ -895,36 +928,6 @@ push代码到服务器 git push origin master
     
     
       <category term="hexo配置问题" scheme="http://linjin101.com/tags/hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在github上创建新分支</title>
-    <link href="http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
-    <id>http://linjin101.com/2017/03/07/在github上创建新分支/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2018-03-08T12:09:32.322Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/guang11cheng/article/details/37757201</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/top_code/article/details/51931916</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://www.cnblogs.com/horanly/p/6265182.html
-</a></p>
-<p>在github上创建仓库：<br><code>Create a new repository on the command line</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/BrentHuang/MyRepo.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<p>在本地新建一个分支： <code>git branch Branch1</code><br>切换到你的新分支: <code>git checkout Branch1</code><br>将新分支发布在github上： <code>git push origin Branch1</code><br>在本地删除一个分支： <code>git branch -d Branch1</code><br>在github远程端删除一个分支： <code>git push origin :Branch1</code><br>(分支名前的冒号代表删除)</p>
-<p>直接使用git pull和git push的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Git branch --set-upstream-to=origin/master master </div><div class="line">git branch --set-upstream-to=origin/ThirdParty ThirdParty</div><div class="line">git config --global push.default matching</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/guang11cheng/article/details/37757201&lt;/a&gt;&lt;br&gt;&lt;a hre
-    
-    </summary>
-    
-      <category term="git" scheme="http://linjin101.com/categories/git/"/>
-    
-    
-      <category term="github" scheme="http://linjin101.com/tags/github/"/>
-    
-      <category term="建新分支" scheme="http://linjin101.com/tags/%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
     
   </entry>
   
@@ -967,11 +970,11 @@ push代码到服务器 git push origin master
   </entry>
   
   <entry>
-    <title>github配置折腾步骤</title>
-    <link href="http://linjin101.com/2017/03/06/github%E9%85%8D%E7%BD%AE%E6%8A%98%E8%85%BE%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://linjin101.com/2017/03/06/github配置折腾步骤/</id>
+    <title>hexo安装配置</title>
+    <link href="http://linjin101.com/2017/03/06/hexo%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    <id>http://linjin101.com/2017/03/06/hexo安装配置/</id>
     <published>2017-03-06T15:46:55.000Z</published>
-    <updated>2018-03-08T12:09:32.320Z</updated>
+    <updated>2018-03-08T12:09:32.321Z</updated>
     
     <content type="html"><![CDATA[<p>win10安装报错,提示需要管理员账户.<br>后来修改权限半天,而且也切换管理员账户还是出错.误解搜索错误解决办法,最后替换淘宝的源解决问题.<br>报错:</p>
 <pre><code>$ npm install hexo-cli -g
@@ -1024,8 +1027,6 @@ npm WARN optiona
     
       <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
     
-    
-      <category term="github报错" scheme="http://linjin101.com/tags/github%E6%8A%A5%E9%94%99/"/>
     
   </entry>
   
