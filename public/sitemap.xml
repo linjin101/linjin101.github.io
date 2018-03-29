@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/categories/index.html</loc>
+    <loc>http://linjin101.com/about/index.html</loc>
     
     <lastmod>2018-03-29T08:41:03.191Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://linjin101.com/about/index.html</loc>
+    <loc>http://linjin101.com/categories/index.html</loc>
     
     <lastmod>2018-03-29T08:41:03.191Z</lastmod>
     
@@ -65,13 +65,6 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/2017/03/28/%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2018-03-29T08:41:03.189Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/</loc>
     
     <lastmod>2018-03-29T08:41:03.189Z</lastmod>
@@ -79,7 +72,14 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/2017/03/24/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</loc>
+    <loc>http://linjin101.com/2017/03/28/%E5%A4%A7%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8F%E7%BD%91%E7%AB%99%E6%9C%AF%E8%AF%AD%E5%88%86%E6%9E%90/</loc>
+    
+    <lastmod>2018-03-29T08:41:03.189Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://linjin101.com/2017/03/08/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E4%BD%93%E4%BC%9A%EF%BC%881009%EF%BC%89%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8%EF%BC%9AFeature-List/</loc>
     
     <lastmod>2018-03-29T08:41:03.188Z</lastmod>
     
@@ -93,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/2017/03/08/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E4%BD%93%E4%BC%9A%EF%BC%881009%EF%BC%89%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8%EF%BC%9AFeature-List/</loc>
+    <loc>http://linjin101.com/2017/03/24/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</loc>
     
     <lastmod>2018-03-29T08:41:03.188Z</lastmod>
     
@@ -121,13 +121,6 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/</loc>
-    
-    <lastmod>2018-03-29T08:41:03.186Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://linjin101.com/2017/03/13/hexo-admin%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
     
     <lastmod>2018-03-29T08:41:03.186Z</lastmod>
@@ -142,6 +135,20 @@
   </url>
   
   <url>
+    <loc>http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93refusing%20to%20merge%20unrelated%20histories/</loc>
+    
+    <lastmod>2018-03-29T08:41:03.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93/</loc>
+    
+    <lastmod>2018-03-29T08:41:03.185Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://linjin101.com/2017/03/06/github%E9%85%8D%E7%BD%AE%E6%8A%98%E8%85%BE%E6%AD%A5%E9%AA%A4/</loc>
     
     <lastmod>2018-03-29T08:41:03.185Z</lastmod>
@@ -150,13 +157,6 @@
   
   <url>
     <loc>http://linjin101.com/2017/03/07/github%E6%80%8E%E4%B9%88%E7%BB%91%E5%AE%9A%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%EF%BC%9F/</loc>
-    
-    <lastmod>2018-03-29T08:41:03.185Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://linjin101.com/2017/03/06/git%E6%97%A0%E6%B3%95pull%E4%BB%93%E5%BA%93/</loc>
     
     <lastmod>2018-03-29T08:41:03.185Z</lastmod>
     
@@ -177,13 +177,6 @@
   </url>
   
   <url>
-    <loc>http://linjin101.com/2017/03/21/Elon-Musk%E7%9A%84%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E6%80%9D%E8%80%83%E6%96%B9%E5%BC%8F/</loc>
-    
-    <lastmod>2018-03-29T08:41:03.154Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://linjin101.com/2017/03/07/HTML4%20%E5%92%8C%20HTML5%20%E7%9A%8410%E4%B8%AA%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2018-03-29T08:41:03.154Z</lastmod>
@@ -192,6 +185,13 @@
   
   <url>
     <loc>http://linjin101.com/2017/03/14/Gitlab%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2018-03-29T08:41:03.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://linjin101.com/2017/03/21/Elon-Musk%E7%9A%84%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E6%80%9D%E8%80%83%E6%96%B9%E5%BC%8F/</loc>
     
     <lastmod>2018-03-29T08:41:03.154Z</lastmod>
     
