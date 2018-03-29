@@ -1,0 +1,944 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,jquery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="【 重新认识 - Jquery 是什么 】jQuery简写 jq ，汉语 鸡 课 外 瑞，具体来说，他是一个JS库 ，并不是人人常说的框架，库不能称之为框架，框架是解决方案的轮子、架子，库一般来说是一个语言浓缩和优化过后的超集或者工具包，其实ES6 更像是ES5的超集和库。 jQuery的诞生背景背景：Query 查询的意思, jQuery就是用javascript更加方便的查询和控制页面控件。由">
+<meta name="keywords" content="前端,jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你还在用jQuery？">
+<meta property="og:url" content="http://linjin101.com/2017/03/27/你还在用jQuery？/index.html">
+<meta property="og:site_name" content="程序猿非猿的博客">
+<meta property="og:description" content="【 重新认识 - Jquery 是什么 】jQuery简写 jq ，汉语 鸡 课 外 瑞，具体来说，他是一个JS库 ，并不是人人常说的框架，库不能称之为框架，框架是解决方案的轮子、架子，库一般来说是一个语言浓缩和优化过后的超集或者工具包，其实ES6 更像是ES5的超集和库。 jQuery的诞生背景背景：Query 查询的意思, jQuery就是用javascript更加方便的查询和控制页面控件。由">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-29T08:41:03.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你还在用jQuery？">
+<meta name="twitter:description" content="【 重新认识 - Jquery 是什么 】jQuery简写 jq ，汉语 鸡 课 外 瑞，具体来说，他是一个JS库 ，并不是人人常说的框架，库不能称之为框架，框架是解决方案的轮子、架子，库一般来说是一个语言浓缩和优化过后的超集或者工具包，其实ES6 更像是ES5的超集和库。 jQuery的诞生背景背景：Query 查询的意思, jQuery就是用javascript更加方便的查询和控制页面控件。由">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjin101.com/2017/03/27/你还在用jQuery？/"/>
+
+
+
+
+
+  <title> 你还在用jQuery？ | 程序猿非猿的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序猿非猿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">珠宝盈屋防人偷,夜不能寐日日愁,何如满腹书卷在,福慧双修路路酬</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://linjin101.com/2017/03/27/你还在用jQuery？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjin101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://linjin101.com/pmp.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿非猿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                你还在用jQuery？
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T17:35:00+08:00">
+                2017-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="【-重新认识-Jquery-是什么-】"><a href="#【-重新认识-Jquery-是什么-】" class="headerlink" title="【 重新认识 - Jquery 是什么 】"></a>【 重新认识 - Jquery 是什么 】</h4><p>jQuery简写 jq ，汉语 鸡 课 外 瑞，具体来说，他是一个JS库 ，并不是人人常说的框架，库不能称之为框架，框架是解决方案的轮子、架子，库一般来说是一个语言浓缩和优化过后的超集或者工具包，其实ES6 更像是ES5的超集和库。</p>
+<h4 id="jQuery的诞生背景"><a href="#jQuery的诞生背景" class="headerlink" title="jQuery的诞生背景"></a>jQuery的诞生背景</h4><p>背景：Query 查询的意思, jQuery就是用javascript更加方便的查询和控制页面控件。由善于思考并且很懒的美国佬 John Resig 创造并维护。</p>
+<p>jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+<p>几乎无所不能，而且想要多懒的写法就可以多懒的写法，因为它支持链式写法，而且对css样式支持接近完美。</p>
+<h4 id="Jquery-的意义和作用"><a href="#Jquery-的意义和作用" class="headerlink" title="Jquery 的意义和作用"></a>Jquery 的意义和作用</h4><p>jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。</p>
+<p>jQuery兼容各种主流浏览器 或者说所有的浏览器，它的其中一大目的，就是为了对付鱼龙混杂的兼容问题，所以对各个浏览器都可以轻松应对，而不用管原生js是否支持。<br>直观对比 ：获取一个dom节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//可爱的 javascript ：document.getElementByID(&quot;id&quot;)；</div><div class="line">//牛鼻的 jQuery：</div><div class="line"> $(&quot;#id&quot;)；</div></pre></td></tr></table></figure></p>
+<p>直观对比 ：操作css样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//可爱的 javascript ：好大一串我去</div><div class="line">document.getElementById(&quot;id&quot;).style.color=&quot;#ff0000&quot;；</div><div class="line">document.getElementById(&quot;id&quot;).style.background=&quot;#000000&quot;；</div><div class="line">document.getElementById(&quot;id&quot;).style.display=&quot;block&quot;；</div></pre></td></tr></table></figure></p>
+<p>//牛鼻的 jQuery：就像写css一样写就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> $(&quot;#id&quot;).css(</div><div class="line">&#123;  </div><div class="line">    &quot;color&quot;:&quot;#ff0000&quot;, </div><div class="line">    &quot;background&quot;:&quot;#000000&quot;, </div><div class="line">    &quot;display&quot;:&quot;block&quot;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure></p>
+<p>直观对比 ：获取一个元素的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//可爱的 javascript ：获取，设置</div><div class="line">document.getElementByID(&quot;id&quot;).getAttribute(&quot;href&quot;)；</div><div class="line">document.getElementByID(&quot;id&quot;).setAttribute(&quot;href&quot;,，&quot;www.xx.com&quot;)；</div><div class="line"></div><div class="line">//牛鼻的 jQuery：</div><div class="line"> $(&quot;#id&quot;).attr(&quot;href&quot;,&quot;www.xx.com&quot;);</div></pre></td></tr></table></figure></p>
+<h4 id="Jquery-的好处和缺点"><a href="#Jquery-的好处和缺点" class="headerlink" title="Jquery 的好处和缺点"></a>Jquery 的好处和缺点</h4><p>好处：不言而喻，经过上边的对比得知：它优秀的设计思想和实用容记的语法 都让他立于不败之地将近10余年。<br>它是2006年一经推出，就火速得到各界的好评和世界各大大量项目的深度应用，至今网络70%的绚丽效果和插件都是它的功劳，可见普及度和好用程度多么亲民。</p>
+<p>以下几点摘自 某百科（反正大家都知道 大同小异，不多做介绍）</p>
+<h5 id="1、快速获取文档元素"><a href="#1、快速获取文档元素" class="headerlink" title="1、快速获取文档元素"></a>1、快速获取文档元素</h5><p>jQuery的选择机制构建于Css的选择器，它提供了快速查询DOM文档中元素的能力，而且大大强化了JavaScript中获取页面元素的方式。</p>
+<h5 id="2、提供漂亮的页面动态效果"><a href="#2、提供漂亮的页面动态效果" class="headerlink" title="2、提供漂亮的页面动态效果"></a>2、提供漂亮的页面动态效果</h5><p>jQuery中内置了一系列的动画效果，可以开发出非常漂亮的网页，许多网站都使用jQuery的内置的效果，比如淡入淡出、元素移除等动态特效。</p>
+<h5 id="3、创建AJAX无刷新网页"><a href="#3、创建AJAX无刷新网页" class="headerlink" title="3、创建AJAX无刷新网页"></a>3、创建AJAX无刷新网页</h5><p>AJAX是异步的JavaScript和ML的简称，可以开发出非常灵敏无刷新的网页，特别是开发服务器端网页时，比如PHP网站，需要往返地与服务器通信，如果不使用AJAX，每次数据更新不得不重新刷新网页，而使用AJAX特效后，可以对页面进行局部刷新，提供动态的效果。</p>
+<h5 id="4、提供对JavaScript语言的增强"><a href="#4、提供对JavaScript语言的增强" class="headerlink" title="4、提供对JavaScript语言的增强"></a>4、提供对JavaScript语言的增强</h5><p>jQuery提供了对基本JavaScript结构的增强，比如元素迭代和数组处理等操作。</p>
+<p>增强的事件处理<br>jQuery提供了各种页面事件，它可以避免程序员在HTML中添加太事件处理代码，最重要的是，它的事件处理器消除了各种浏览器兼容性问题。</p>
+<h5 id="5、更改网页内容"><a href="#5、更改网页内容" class="headerlink" title="5、更改网页内容"></a>5、更改网页内容</h5><p>jQuery可以修改网页中的内容，比如更改网页的文本、插入或者翻转网页图像，jQuery简化了原本使用JavaScript代码需要处理的方式。</p>
+<p>缺点：极度依赖dom节点，要引入第三方jquery文件额，而且是一大坨。版本参差不齐，虽说解决了浏览器之间的兼容问题，但却出现了jquery版本之间的用法冲突等。</p>
+<p>1、现在的jQuery太臃肿了，有很多用不到的功能。所以现在有了很多精简jQuery的项目。如 zepto.js</p>
+<p>2、对jQuery的过度依赖，目前大部分前端和后端人员极度依赖jQuery的写法和应用，以至于离开jQuery压根不会写JS，在一定程度上变成了一种悲哀。</p>
+<p>3、全DOM操作，钩子往往会依赖标签，如果依赖jQuery来搭建页面的话（比如后台输出json，然后jQuery loop一个列表出来），维护上会有困难。一旦改动改页面结构，很多依赖标签的选择器，一改起来js那块就得跟着大改，或者改动json 数据格式，dom也得跟着改动，改版是一件万分痛苦的事。也就是解耦性太紧了。是基于事件驱动不是基于数据驱动，数据结构一旦变化，view层就要重新维护。</p>
+<p>4、避免不了大量手拼html字符串（标准dom方法除了innerHTML这一历史遗迹，是完全没有直接插html的api接口的），从根本上解决不了XSS攻击隐患。这确实也是jQuery的一个缺点。</p>
+<p>那么，我们简单回顾了一下，让众多程序员跨过一个时代的jQuery神器，那么我们这系列文章的真正目的是什么呢？</p>
+<p>如标题所言：你还在用 jQuery? 我是在反问你啊 大胸弟，大胸妹 你们有没有想过一个问题，现在前端到底是一个什么样的时代呢？</p>
+<p>前面我们说了 会用jQuery 你还不叫前端好吗？大部分后端都比你玩的6啊，因为好多效果和应用各种复制查询就可以啦，也导致各种可笑的代码层出不穷，鱼目混珠。</p>
+<h4 id="【-jQuery过时了吗-】"><a href="#【-jQuery过时了吗-】" class="headerlink" title="【 jQuery过时了吗 】"></a>【 jQuery过时了吗 】</h4><p>这是个伪命题，但却是个很亲民和讨论意义的话题。<br>过时：如果是指被用得少了，或者大部分人已经在讨论是不是过时了，那肯定是在过时。</p>
+<p>我的观点是：第一选择已近过时，但开发思想永为经典。<br>虽然jQuery官方不愿承认，而且一直在跟随潮流做很重要的更新，甚至有了mvvm概念的框架用法加入其中还出了jquery mobile 等移动端定制库，不过很遗憾，越来越多的项目抛弃了jquery，因为它的历史使命已经完成了。</p>
+<p>但不会完全过时，它的思想是影响整整一代的，现在就算 angularjs、 vuejs、reactjs在实际开发中，还是少不了dom操作，毕竟你怎么可能完全脱离dom呢？</p>
+<p>作为一个库，jQuery能在计算机软件领域存在十余年，绝非偶然。它的选择符、易用的API、跨浏览器兼容、DOM元素批处理、插件提供的代码复用等等，个个特性都有强大的理论支持和实际场景的良好应用。</p>
+<p>时代在进步，思想在进步，web前端发展这么多年也终于有了大范围的变化。现在的vuejs、angularjs、react大行其道，而且各种教材刺激眼球，还有各种大神的安利文，那么跟着我来看看这种类型的框架是怎样的一个东西。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/24/马云环球转型论坛压轴演讲全文/" rel="next" title="马云环球转型论坛压轴演讲全文">
+                <i class="fa fa-chevron-left"></i> 马云环球转型论坛压轴演讲全文
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/28/大型分布式网站术语分析/" rel="prev" title="大型分布式网站术语分析 ">
+                大型分布式网站术语分析  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://linjin101.com/pmp.jpg"
+               alt="linjin101" />
+          <p class="site-author-name" itemprop="name">linjin101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/linjin101" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/mpu/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://linjin101.blog.51cto.com" title="51CTO" target="_blank">51CTO</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#【-重新认识-Jquery-是什么-】"><span class="nav-number">1.</span> <span class="nav-text">【 重新认识 - Jquery 是什么 】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery的诞生背景"><span class="nav-number">2.</span> <span class="nav-text">jQuery的诞生背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jquery-的意义和作用"><span class="nav-number">3.</span> <span class="nav-text">Jquery 的意义和作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jquery-的好处和缺点"><span class="nav-number">4.</span> <span class="nav-text">Jquery 的好处和缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、快速获取文档元素"><span class="nav-number">4.1.</span> <span class="nav-text">1、快速获取文档元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、提供漂亮的页面动态效果"><span class="nav-number">4.2.</span> <span class="nav-text">2、提供漂亮的页面动态效果</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、创建AJAX无刷新网页"><span class="nav-number">4.3.</span> <span class="nav-text">3、创建AJAX无刷新网页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、提供对JavaScript语言的增强"><span class="nav-number">4.4.</span> <span class="nav-text">4、提供对JavaScript语言的增强</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、更改网页内容"><span class="nav-number">4.5.</span> <span class="nav-text">5、更改网页内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【-jQuery过时了吗-】"><span class="nav-number">5.</span> <span class="nav-text">【 jQuery过时了吗 】</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjin101</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

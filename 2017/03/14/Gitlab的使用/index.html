@@ -1,0 +1,953 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git,gitlab," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近成功的在公司部署了gitlab，鉴于同学们还不会使用，这里写篇博客说明下。如果想安装gitlab的话，需要一些linux的基础知识 1.什么是Git鉴于有同学还没用过git，就先介绍一下git吧。git就是一种版本控制工具。说到版本控制，大家可能就想到了svn。但是两者有着本质的区别。 svn是集中化的版本控制系统, 只有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通">
+<meta name="keywords" content="git,gitlab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gitlab的使用">
+<meta property="og:url" content="http://linjin101.com/2017/03/14/Gitlab的使用/index.html">
+<meta property="og:site_name" content="程序猿非猿的博客">
+<meta property="og:description" content="最近成功的在公司部署了gitlab，鉴于同学们还不会使用，这里写篇博客说明下。如果想安装gitlab的话，需要一些linux的基础知识 1.什么是Git鉴于有同学还没用过git，就先介绍一下git吧。git就是一种版本控制工具。说到版本控制，大家可能就想到了svn。但是两者有着本质的区别。 svn是集中化的版本控制系统, 只有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://linjin101.com/images/pasted-2.png">
+<meta property="og:image" content="http://linjin101.com/images/pasted-1.png">
+<meta property="og:image" content="http://linjin101.com/images/pasted-3.png">
+<meta property="og:image" content="http://linjin101.com/images/pasted-4.png">
+<meta property="og:image" content="http://linjin101.com/images/pasted-5.png">
+<meta property="og:image" content="http://linjin101.com/images/pasted-6.png">
+<meta property="og:updated_time" content="2018-03-29T08:41:03.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gitlab的使用">
+<meta name="twitter:description" content="最近成功的在公司部署了gitlab，鉴于同学们还不会使用，这里写篇博客说明下。如果想安装gitlab的话，需要一些linux的基础知识 1.什么是Git鉴于有同学还没用过git，就先介绍一下git吧。git就是一种版本控制工具。说到版本控制，大家可能就想到了svn。但是两者有着本质的区别。 svn是集中化的版本控制系统, 只有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通">
+<meta name="twitter:image" content="http://linjin101.com/images/pasted-2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjin101.com/2017/03/14/Gitlab的使用/"/>
+
+
+
+
+
+  <title> Gitlab的使用 | 程序猿非猿的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序猿非猿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">珠宝盈屋防人偷,夜不能寐日日愁,何如满腹书卷在,福慧双修路路酬</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://linjin101.com/2017/03/14/Gitlab的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjin101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://linjin101.com/pmp.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿非猿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gitlab的使用
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T13:34:00+08:00">
+                2017-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近成功的在公司部署了gitlab，鉴于同学们还不会使用，这里写篇博客说明下。如果想安装gitlab的话，需要一些linux的基础知识</p>
+<h4 id="1-什么是Git"><a href="#1-什么是Git" class="headerlink" title="1.什么是Git"></a>1.什么是Git</h4><p>鉴于有同学还没用过git，就先介绍一下git吧。git就是一种版本控制工具。说到版本控制，大家可能就想到了svn。但是两者有着本质的区别。</p>
+<p>svn是集中化的版本控制系统, 只有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
+<p>git是分布式的版本控制系统, 每一个终端都是一个仓库，客户端并不只提取最新版本的文件快照，而是把原始的代码仓库完整地镜像下来。每一次的提取操作，实际上都是一次对代码仓库的完整备份。</p>
+<h5 id="集中式版本控制："><a href="#集中式版本控制：" class="headerlink" title="集中式版本控制："></a>集中式版本控制：</h5><p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<h5 id="分布式版本控制："><a href="#分布式版本控制：" class="headerlink" title="分布式版本控制："></a>分布式版本控制：</h5><p><img src="/images/pasted-1.png" alt="upload successful"> </p>
+<h4 id="2-GitLab创建工程"><a href="#2-GitLab创建工程" class="headerlink" title="2.GitLab创建工程"></a>2.GitLab创建工程</h4><p>点击导航条上的 “+” 就可以进入创建工程页面<br><img src="/images/pasted-3.png" alt="upload successful"><br>这里面很简单,主要讲两个地方：</p>
+<h5 id="2-1-namespace"><a href="#2-1-namespace" class="headerlink" title="2.1 namespace"></a>2.1 namespace</h5><p>这个选择是用来决定这个工程所属的，可以选User为你自己。<br>或者选择组，这个会影响到后面工程的url。<br>例如我选择了组suning创建工程SuningTest、<br>那么这个工程就会在这个组内可见，<br>那么访问路径就是<a href="https://domain.com/suning/suningtest" target="_blank" rel="noopener">link</a>  </p>
+<h5 id="2-2-Visibility-Level"><a href="#2-2-Visibility-Level" class="headerlink" title="2.2 Visibility Level"></a>2.2 Visibility Level</h5><p>权限等级分三种：   </p>
+<pre><code>Private 私有的，只有你自己或者组内的成员能访问
+Internal 所有登录的用户
+Public 公开的，所有人都可以访问
+</code></pre><h4 id="3-Git的使用"><a href="#3-Git的使用" class="headerlink" title="3.Git的使用"></a>3.Git的使用</h4><h5 id="3-1-添加sshkey"><a href="#3-1-添加sshkey" class="headerlink" title="3.1 添加sshkey"></a>3.1 添加sshkey</h5><p>git仓库之间的代码传输协议主要使用ssh协议。而一般搭建gitlab的时候使用的git用户是没有密码的，因此直接ssh是不能登录的，就需要使用ssh-keygen上传公钥，使用非对称加密传输。下面讲述如何上传你的ssh公钥：</p>
+<h5 id="3-1-1生成sshkey"><a href="#3-1-1生成sshkey" class="headerlink" title="3.1.1生成sshkey"></a>3.1.1生成sshkey</h5><p>在终端中敲下面的命令，第一步会生成一对私钥和公钥，分别存在 <code>~/.ssh/id_rsa</code>和<code>~/.ssh/id_rsa.pub</code>中。第二步查看公钥字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;$your_email&quot;</div><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<h5 id="3-1-2保存sshkey到gitlab"><a href="#3-1-2保存sshkey到gitlab" class="headerlink" title="3.1.2保存sshkey到gitlab"></a>3.1.2保存sshkey到gitlab</h5><p>在面板上依次点击<code>Profile Settings –&gt; SSH Keys –&gt; Add SSH Keys</code>。然后把上一步中的<code>id_rsa.pub</code>中的内容拷贝出来粘贴到输入框中，保存。<br><img src="/images/pasted-4.png" alt="upload successful"><br>完成上面两步之后就成功的添加了sshkey了，然后就可以上传代码了。</p>
+<h5 id="3-2-初始上传代码"><a href="#3-2-初始上传代码" class="headerlink" title="3.2 初始上传代码"></a>3.2 初始上传代码</h5><p>如果你已经使用过git了，那么这一步对你来说可以跳过了。整体来说比较简单的。下面的$project_root代表工程根目录</p>
+<pre><code>进入工程目录 cd $project_root`
+初始化git仓库 git init
+添加文件到仓库 git add .
+提交代码到仓库 git commit -m &apos;init commit&apos;
+链接到git server git remote add origin git@example.com:namespace/projectname.git
+push代码到服务器 git push origin master
+</code></pre><h5 id="3-3-克隆代码到本地"><a href="#3-3-克隆代码到本地" class="headerlink" title="3.3 克隆代码到本地"></a>3.3 克隆代码到本地</h5><p>在svn中，我们都叫checkout. 把代码checkout到本地。而git中我们叫克隆，克隆会把整个仓库都拉到本地。<br>如，我要把刚才的工程再clone到本地。<br><code>git clone git@example.com:namespace/projectname.git</code></p>
+<h5 id="3-4-设置gitignore"><a href="#3-4-设置gitignore" class="headerlink" title="3.4 设置gitignore"></a>3.4 设置gitignore</h5><p>有一些文件或文件夹是我们不想要被版本控制的，比如<code>.DS_Store build\ xcuserdata thumbs.db</code>，git提供了一种忽略的方案。</p>
+<p>在项目根目录下创建<code>.gitignore</code>文件，然后把需要忽略的文件或文件夹名写进去。这样就可以忽略这些文件受版本控制啦。</p>
+<p>svn也提供了这样忽略的方案，svn也可以设置全局忽略。svn的此配置放在<code>~/.subversion/config</code>中<code>global-ignores</code>的值。</p>
+<p>通过设置<code>ignore</code>，我们可以实现git和svn双管理哦，就是在svn忽略.git文件夹，在<code>gitignore中</code>忽略<code>.svn</code>文件夹，有兴趣的同学可以试试</p>
+<h5 id="3-5-Git文件的状态"><a href="#3-5-Git文件的状态" class="headerlink" title="3.5 Git文件的状态"></a>3.5 Git文件的状态</h5><p>Git管理下的文件有3种状态，如下图：<br><img src="/images/pasted-5.png" alt="upload successful"></p>
+<h5 id="3-6-Git基础"><a href="#3-6-Git基础" class="headerlink" title="3.6 Git基础"></a>3.6 Git基础</h5><p>Git博大精深，个人感觉，不管是从其强大的功能上，还是从其实现方案上来讲比svn强大很多。这里贴个学习链接吧，这一系列讲的非常全面非常详细：<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git基础</a></p>
+<h5 id="3-7-图形化Git管理工具"><a href="#3-7-图形化Git管理工具" class="headerlink" title="3.7 图形化Git管理工具"></a>3.7 图形化Git管理工具</h5><p>如果说你不喜欢命令行的使用方式，你也可以使用图形界面工具SoureTree: <a href="http://www.sourcetreeapp.com/" target="_blank" rel="noopener">http://www.sourcetreeapp.com/</a> 界面简洁，使用方便,功能强大。</p>
+<p>贴个预览：<br><img src="/images/pasted-6.png" alt="upload successful"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/gitlab/" rel="tag"># gitlab</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/hexo-admin安装以及问题解决/" rel="next" title="hexo-admin安装以及问题解决">
+                <i class="fa fa-chevron-left"></i> hexo-admin安装以及问题解决
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/一些镜像/" rel="prev" title="一些镜像">
+                一些镜像 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://linjin101.com/pmp.jpg"
+               alt="linjin101" />
+          <p class="site-author-name" itemprop="name">linjin101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/linjin101" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/mpu/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://linjin101.blog.51cto.com" title="51CTO" target="_blank">51CTO</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是Git"><span class="nav-number">1.</span> <span class="nav-text">1.什么是Git</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#集中式版本控制："><span class="nav-number">1.1.</span> <span class="nav-text">集中式版本控制：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分布式版本控制："><span class="nav-number">1.2.</span> <span class="nav-text">分布式版本控制：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-GitLab创建工程"><span class="nav-number">2.</span> <span class="nav-text">2.GitLab创建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-namespace"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 namespace</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-Visibility-Level"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Visibility Level</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Git的使用"><span class="nav-number">3.</span> <span class="nav-text">3.Git的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-添加sshkey"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 添加sshkey</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1生成sshkey"><span class="nav-number">3.2.</span> <span class="nav-text">3.1.1生成sshkey</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2保存sshkey到gitlab"><span class="nav-number">3.3.</span> <span class="nav-text">3.1.2保存sshkey到gitlab</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-初始上传代码"><span class="nav-number">3.4.</span> <span class="nav-text">3.2 初始上传代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-克隆代码到本地"><span class="nav-number">3.5.</span> <span class="nav-text">3.3 克隆代码到本地</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-设置gitignore"><span class="nav-number">3.6.</span> <span class="nav-text">3.4 设置gitignore</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-Git文件的状态"><span class="nav-number">3.7.</span> <span class="nav-text">3.5 Git文件的状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-6-Git基础"><span class="nav-number">3.8.</span> <span class="nav-text">3.6 Git基础</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-7-图形化Git管理工具"><span class="nav-number">3.9.</span> <span class="nav-text">3.7 图形化Git管理工具</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjin101</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
