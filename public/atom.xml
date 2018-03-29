@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linjin101.com/"/>
-  <updated>2018-03-29T10:38:48.609Z</updated>
+  <updated>2018-03-29T11:02:34.340Z</updated>
   <id>http://linjin101.com/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>111</title>
+    <link href="http://linjin101.com/2018/03/29/111/"/>
+    <id>http://linjin101.com/2018/03/29/111/</id>
+    <published>2018-03-29T11:02:33.000Z</published>
+    <updated>2018-03-29T11:02:34.340Z</updated>
+    
+    <content type="html"><![CDATA[<p>22222</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;22222&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>打板原则---赌场里不是人精就是庄家！</title>
@@ -969,35 +989,6 @@ push代码到服务器 git push origin master
     
     
       <category term="hexo配置问题" scheme="http://linjin101.com/tags/hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo部署后，CNAME会被自动删除，怎么办？</title>
-    <link href="http://linjin101.com/2017/03/07/hexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/"/>
-    <id>http://linjin101.com/2017/03/07/hexo部署后，CNAME会被自动删除，怎么办？/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2018-03-29T08:41:03.187Z</updated>
-    
-    <content type="html"><![CDATA[<p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。</p>
-<p>如图：<br>CNAME README都可以放在Source文件夹下，每次上传就不会消失了</p>
-<p><img src="https://pic4.zhimg.com/93a311be4f651f8cd639233e544b826b_b.jpg" alt="image"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。&lt;/p&gt;
-&lt;p&gt;如图：&lt;br&gt;CNAME README都可以放在Source文件夹下，每次上传就不会消失了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
-    
-    
-      <category term="hexo部署" scheme="http://linjin101.com/tags/hexo%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="CNAME" scheme="http://linjin101.com/tags/CNAME/"/>
     
   </entry>
   
