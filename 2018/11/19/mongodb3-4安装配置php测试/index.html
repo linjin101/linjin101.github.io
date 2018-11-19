@@ -1,0 +1,915 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, linjin101" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.安装环境CentOS release 6.8 (Final)Linux version 2.6.32-642.15.1.el6.x86_64   2.mongodb 3.4官方安装方法安装文档https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/   （1）配置包管理系统(yum)创建一个/etc/yum.rep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb3.4安装配置PHP测试">
+<meta property="og:url" content="http://linjin101.com/2018/11/19/mongodb3-4安装配置php测试/index.html">
+<meta property="og:site_name" content="程序猿非猿的博客">
+<meta property="og:description" content="1.安装环境CentOS release 6.8 (Final)Linux version 2.6.32-642.15.1.el6.x86_64   2.mongodb 3.4官方安装方法安装文档https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/   （1）配置包管理系统(yum)创建一个/etc/yum.rep">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-19T09:54:27.868Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb3.4安装配置PHP测试">
+<meta name="twitter:description" content="1.安装环境CentOS release 6.8 (Final)Linux version 2.6.32-642.15.1.el6.x86_64   2.mongodb 3.4官方安装方法安装文档https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/   （1）配置包管理系统(yum)创建一个/etc/yum.rep">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://linjin101.com/2018/11/19/mongodb3-4安装配置php测试/"/>
+
+
+
+
+
+  <title> mongodb3.4安装配置PHP测试 | 程序猿非猿的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程序猿非猿的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">珠宝盈屋防人偷,夜不能寐日日愁,何如满腹书卷在,福慧双修路路酬</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links" rel="section">
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://linjin101.com/2018/11/19/mongodb3-4安装配置php测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjin101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://linjin101.com/pmp.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿非猿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongodb3.4安装配置PHP测试
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T16:34:45+08:00">
+                2018-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1.安装环境"></a>1.安装环境</h5><p>CentOS release 6.8 (Final)<br>Linux version 2.6.32-642.15.1.el6.x86_64  </p>
+<h5 id="2-mongodb-3-4官方安装方法"><a href="#2-mongodb-3-4官方安装方法" class="headerlink" title="2.mongodb 3.4官方安装方法"></a>2.mongodb 3.4官方安装方法</h5><p>安装文档<br><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</a>  </p>
+<h6 id="（1）配置包管理系统-yum"><a href="#（1）配置包管理系统-yum" class="headerlink" title="（1）配置包管理系统(yum)"></a>（1）配置包管理系统(yum)</h6><p>创建一个/etc/yum.repos.d/mongodb-org-4.0.repo文件，以便您可以使用以下方法直接安装MongoDByum:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-4.0]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/</div><div class="line">gpgcheck=1</div><div class="line">enabled=1</div><div class="line">gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc</div></pre></td></tr></table></figure></p>
+<h6 id="2-安装MongoDB包"><a href="#2-安装MongoDB包" class="headerlink" title="(2)安装MongoDB包"></a>(2)安装MongoDB包</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："><a href="#3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：" class="headerlink" title="(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："></a>(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org-4.0.4 mongodb-org-server-4.0.4 mongodb-org-shell-4.0.4 mongodb-org-mongos-4.0.4 mongodb-org-tools-4.0.4</div></pre></td></tr></table></figure>
+<h6 id="4-安装MongoDB包和相关工具"><a href="#4-安装MongoDB包和相关工具" class="headerlink" title="(4)安装MongoDB包和相关工具"></a>(4)安装MongoDB包和相关工具</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="5-启动MongoDB"><a href="#5-启动MongoDB" class="headerlink" title="(5)启动MongoDB"></a>(5)启动MongoDB</h6><p>您可以启动单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod start</div></pre></td></tr></table></figure>
+<h6 id="6-验证MongoDB是否已成功启动"><a href="#6-验证MongoDB是否已成功启动" class="headerlink" title="(6)验证MongoDB是否已成功启动"></a>(6)验证MongoDB是否已成功启动</h6><p>您可以验证单神通过检查日志文件的内容，进程已成功启动。/var/log/mongoDB/mongod.log行读数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] waiting for connections on port &lt;port&gt;</div></pre></td></tr></table></figure>
+<p>哪里<port>中配置的端口吗？/etc/mongod.conf, 27017默认情况下。<br>还可以通过发出以下命令，确保MongoDB将在系统重新启动之后启动：  </port></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chkconfig mongod on</div></pre></td></tr></table></figure>
+<h6 id="7-停止mongodb"><a href="#7-停止mongodb" class="headerlink" title="(7)停止mongodb"></a>(7)停止mongodb</h6><p>根据需要，您可以停止单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod stop</div></pre></td></tr></table></figure>
+<h5 id="3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题"><a href="#3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题" class="headerlink" title="3.解决 libc.so.6: version GLIBC_2.14  not found 问题"></a>3.解决 libc.so.6: version GLIBC_2.14  not found 问题</h5><p>试图运行程序，提示 ibc.so.6: version GLIBC_2.14  not found ,<br>原因是系统的glibc版本太低，软件编译时使用了较高版本的glibc引起的：<br>问题Centos 自动更新glibc-2.14</p>
+<h6 id="1-查看系统glibc支持的版本："><a href="#1-查看系统glibc支持的版本：" class="headerlink" title="1.查看系统glibc支持的版本："></a>1.查看系统glibc支持的版本：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div><div class="line">rpm -qa |grep glibc</div></pre></td></tr></table></figure>
+<p>可以看到最高只支持2.12版本，所以考虑编译解决这个问题<br>到<a href="http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz" target="_blank" rel="noopener">http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz</a> 这个版本<br>注意：解压的目录和安装的目录放在一起，这样会冲突  </p>
+<h6 id="2-glibc-2-14安装"><a href="#2-glibc-2-14安装" class="headerlink" title="2.glibc-2.14安装"></a>2.glibc-2.14安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">wget http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz</div><div class="line">tar -zxvf glibc-2.14.tar.gz </div><div class="line">cd glibc-2.14</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">../configure --prefix=/usr/local/glibc-2.14</div><div class="line">make -j4</div><div class="line">make install</div><div class="line">问题：/root/glibc-2.14/build/elf/ldconfig: Can&apos;t open configuration file /usr/local/glibc-2.14/etc/ld.so.conf: No such file or directory</div><div class="line">解决：</div><div class="line">cp  /etc/ld.so.c* /usr/local/glibc-2.14/etc/</div></pre></td></tr></table></figure>
+<h6 id="3、创建软链接"><a href="#3、创建软链接" class="headerlink" title="3、创建软链接"></a>3、创建软链接</h6><p>1、删除原来软链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /lib64/libc.so.6</div></pre></td></tr></table></figure></p>
+<p>2、解决补救问题  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LD_PRELOAD=/usr/local/glibc-2.14/lib/libc-2.14.so ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>因为操作删除软链接后系统无法操作任何命令，我们需要复制上命令操作后才可以。<br>3、创建新软链接  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>第四、查看当前新的glibc版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div></pre></td></tr></table></figure></p>
+<h5 id="4-Mongodb配置"><a href="#4-Mongodb配置" class="headerlink" title="4.Mongodb配置"></a>4.Mongodb配置</h5><p>设置IP：0.0.0.0 否则内网访问不了，测试用直接打开。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">vi /etc/mongod.conf</div><div class="line"></div><div class="line">network interfaces</div><div class="line">net:</div><div class="line">port: 27017</div><div class="line">bindIp: 0.0.0.0 #127.0.0.1  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the ne        t.bindIpAll setting.</div><div class="line"></div><div class="line">开启mongodb</div><div class="line">service mongod start</div><div class="line">关闭mongodb</div><div class="line">service mongod stop</div><div class="line">重启mongodb</div><div class="line">service mongod restart</div><div class="line"></div><div class="line">mongodb client访问命令：</div><div class="line">mongo mongodb://192.168.3.12:27017</div><div class="line">root@gym-virtual-machine:~# mongo 192.168.3.12:27017</div><div class="line">MongoDB shell version: 2.6.10</div><div class="line">connecting to: 192.168.3.12:27017/test</div></pre></td></tr></table></figure>
+<h5 id="5-PHP配置"><a href="#5-PHP配置" class="headerlink" title="5.PHP配置"></a>5.PHP配置</h5><p>引用：<a href="https://blog.csdn.net/weixin_36185028/article/details/76144859" target="_blank" rel="noopener">https://blog.csdn.net/weixin_36185028/article/details/76144859</a>  </p>
+<ol>
+<li>打开phpinfo 查看 nts（非线程） 还是 ts （线程），然后查看操作位数  </li>
+<li>下载对应的版本的php_mongodb.dll 文件<br>下载链接:<a href="https://pecl.php.net/package/mongodb/1.2.9/windows" target="_blank" rel="noopener">https://pecl.php.net/package/mongodb/1.2.9/windows</a><br>注: 下载需要翻墙  </li>
+<li>把文件解压出来 php_mongodb.dll 文件复制到php安装目录下的 ext 目录下(列子: phpStudy\php\php-7.0.12-nts\ext)  </li>
+<li>打开php.ini 配置文件增加行 ： extension=php_mongodb.dll  </li>
+<li>重启，再打开phpinfo() 查看是否有mongodb扩展，出现下图则安装成功</li>
+</ol>
+<h5 id="5-PHP连接测试"><a href="#5-PHP连接测试" class="headerlink" title="5.PHP连接测试"></a>5.PHP连接测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"> </div><div class="line">$manager = new MongoDB\Driver\Manager(&quot;mongodb://192.168.3.12:27017&quot;);</div><div class="line">print_r($manager);</div></pre></td></tr></table></figure>
+<p>输出连接信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b92</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b93</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b94</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b95</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/29/94岁芒格2小时全程无尿点访谈全记录：关于AI、加密货币、中国…一切投资热点都提到了/" rel="next" title="94岁芒格2小时全程无尿点访谈全记录：关于AI、加密货币、中国…一切投资热点都提到了">
+                <i class="fa fa-chevron-left"></i> 94岁芒格2小时全程无尿点访谈全记录：关于AI、加密货币、中国…一切投资热点都提到了
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://linjin101.com/pmp.jpg"
+               alt="linjin101" />
+          <p class="site-author-name" itemprop="name">linjin101</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/linjin101" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/mpu/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://linjin101.blog.51cto.com" title="51CTO" target="_blank">51CTO</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-安装环境"><span class="nav-number">1.</span> <span class="nav-text">1.安装环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-mongodb-3-4官方安装方法"><span class="nav-number">2.</span> <span class="nav-text">2.mongodb 3.4官方安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）配置包管理系统-yum"><span class="nav-number">2.1.</span> <span class="nav-text">（1）配置包管理系统(yum)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-安装MongoDB包"><span class="nav-number">2.2.</span> <span class="nav-text">(2)安装MongoDB包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："><span class="nav-number">2.3.</span> <span class="nav-text">(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-安装MongoDB包和相关工具"><span class="nav-number">2.4.</span> <span class="nav-text">(4)安装MongoDB包和相关工具</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-启动MongoDB"><span class="nav-number">2.5.</span> <span class="nav-text">(5)启动MongoDB</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-验证MongoDB是否已成功启动"><span class="nav-number">2.6.</span> <span class="nav-text">(6)验证MongoDB是否已成功启动</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-停止mongodb"><span class="nav-number">2.7.</span> <span class="nav-text">(7)停止mongodb</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题"><span class="nav-number">3.</span> <span class="nav-text">3.解决 libc.so.6: version GLIBC_2.14  not found 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-查看系统glibc支持的版本："><span class="nav-number">3.1.</span> <span class="nav-text">1.查看系统glibc支持的版本：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-glibc-2-14安装"><span class="nav-number">3.2.</span> <span class="nav-text">2.glibc-2.14安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、创建软链接"><span class="nav-number">3.3.</span> <span class="nav-text">3、创建软链接</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Mongodb配置"><span class="nav-number">4.</span> <span class="nav-text">4.Mongodb配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-PHP配置"><span class="nav-number">5.</span> <span class="nav-text">5.PHP配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-PHP连接测试"><span class="nav-number">6.</span> <span class="nav-text">5.PHP连接测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linjin101</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

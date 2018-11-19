@@ -309,6 +309,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://linjin101.com/2018/11/19/mongodb3-4安装配置php测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="linjin101">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://linjin101.com/pmp.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程序猿非猿的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/11/19/mongodb3-4安装配置php测试/" itemprop="url">
+                  mongodb3.4安装配置PHP测试
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T16:34:45+08:00">
+                2018-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1.安装环境"></a>1.安装环境</h5><p>CentOS release 6.8 (Final)<br>Linux version 2.6.32-642.15.1.el6.x86_64  </p>
+<h5 id="2-mongodb-3-4官方安装方法"><a href="#2-mongodb-3-4官方安装方法" class="headerlink" title="2.mongodb 3.4官方安装方法"></a>2.mongodb 3.4官方安装方法</h5><p>安装文档<br><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</a>  </p>
+<h6 id="（1）配置包管理系统-yum"><a href="#（1）配置包管理系统-yum" class="headerlink" title="（1）配置包管理系统(yum)"></a>（1）配置包管理系统(yum)</h6><p>创建一个/etc/yum.repos.d/mongodb-org-4.0.repo文件，以便您可以使用以下方法直接安装MongoDByum:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-4.0]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/</div><div class="line">gpgcheck=1</div><div class="line">enabled=1</div><div class="line">gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc</div></pre></td></tr></table></figure></p>
+<h6 id="2-安装MongoDB包"><a href="#2-安装MongoDB包" class="headerlink" title="(2)安装MongoDB包"></a>(2)安装MongoDB包</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："><a href="#3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：" class="headerlink" title="(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："></a>(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org-4.0.4 mongodb-org-server-4.0.4 mongodb-org-shell-4.0.4 mongodb-org-mongos-4.0.4 mongodb-org-tools-4.0.4</div></pre></td></tr></table></figure>
+<h6 id="4-安装MongoDB包和相关工具"><a href="#4-安装MongoDB包和相关工具" class="headerlink" title="(4)安装MongoDB包和相关工具"></a>(4)安装MongoDB包和相关工具</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="5-启动MongoDB"><a href="#5-启动MongoDB" class="headerlink" title="(5)启动MongoDB"></a>(5)启动MongoDB</h6><p>您可以启动单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod start</div></pre></td></tr></table></figure>
+<h6 id="6-验证MongoDB是否已成功启动"><a href="#6-验证MongoDB是否已成功启动" class="headerlink" title="(6)验证MongoDB是否已成功启动"></a>(6)验证MongoDB是否已成功启动</h6><p>您可以验证单神通过检查日志文件的内容，进程已成功启动。/var/log/mongoDB/mongod.log行读数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] waiting for connections on port &lt;port&gt;</div></pre></td></tr></table></figure>
+<p>哪里<port>中配置的端口吗？/etc/mongod.conf, 27017默认情况下。<br>还可以通过发出以下命令，确保MongoDB将在系统重新启动之后启动：  </port></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chkconfig mongod on</div></pre></td></tr></table></figure>
+<h6 id="7-停止mongodb"><a href="#7-停止mongodb" class="headerlink" title="(7)停止mongodb"></a>(7)停止mongodb</h6><p>根据需要，您可以停止单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod stop</div></pre></td></tr></table></figure>
+<h5 id="3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题"><a href="#3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题" class="headerlink" title="3.解决 libc.so.6: version GLIBC_2.14  not found 问题"></a>3.解决 libc.so.6: version GLIBC_2.14  not found 问题</h5><p>试图运行程序，提示 ibc.so.6: version GLIBC_2.14  not found ,<br>原因是系统的glibc版本太低，软件编译时使用了较高版本的glibc引起的：<br>问题Centos 自动更新glibc-2.14</p>
+<h6 id="1-查看系统glibc支持的版本："><a href="#1-查看系统glibc支持的版本：" class="headerlink" title="1.查看系统glibc支持的版本："></a>1.查看系统glibc支持的版本：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div><div class="line">rpm -qa |grep glibc</div></pre></td></tr></table></figure>
+<p>可以看到最高只支持2.12版本，所以考虑编译解决这个问题<br>到<a href="http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz" target="_blank" rel="noopener">http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz</a> 这个版本<br>注意：解压的目录和安装的目录放在一起，这样会冲突  </p>
+<h6 id="2-glibc-2-14安装"><a href="#2-glibc-2-14安装" class="headerlink" title="2.glibc-2.14安装"></a>2.glibc-2.14安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">wget http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz</div><div class="line">tar -zxvf glibc-2.14.tar.gz </div><div class="line">cd glibc-2.14</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">../configure --prefix=/usr/local/glibc-2.14</div><div class="line">make -j4</div><div class="line">make install</div><div class="line">问题：/root/glibc-2.14/build/elf/ldconfig: Can&apos;t open configuration file /usr/local/glibc-2.14/etc/ld.so.conf: No such file or directory</div><div class="line">解决：</div><div class="line">cp  /etc/ld.so.c* /usr/local/glibc-2.14/etc/</div></pre></td></tr></table></figure>
+<h6 id="3、创建软链接"><a href="#3、创建软链接" class="headerlink" title="3、创建软链接"></a>3、创建软链接</h6><p>1、删除原来软链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /lib64/libc.so.6</div></pre></td></tr></table></figure></p>
+<p>2、解决补救问题  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LD_PRELOAD=/usr/local/glibc-2.14/lib/libc-2.14.so ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>因为操作删除软链接后系统无法操作任何命令，我们需要复制上命令操作后才可以。<br>3、创建新软链接  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>第四、查看当前新的glibc版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div></pre></td></tr></table></figure></p>
+<h5 id="4-Mongodb配置"><a href="#4-Mongodb配置" class="headerlink" title="4.Mongodb配置"></a>4.Mongodb配置</h5><p>设置IP：0.0.0.0 否则内网访问不了，测试用直接打开。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">vi /etc/mongod.conf</div><div class="line"></div><div class="line">network interfaces</div><div class="line">net:</div><div class="line">port: 27017</div><div class="line">bindIp: 0.0.0.0 #127.0.0.1  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the ne        t.bindIpAll setting.</div><div class="line"></div><div class="line">开启mongodb</div><div class="line">service mongod start</div><div class="line">关闭mongodb</div><div class="line">service mongod stop</div><div class="line">重启mongodb</div><div class="line">service mongod restart</div><div class="line"></div><div class="line">mongodb client访问命令：</div><div class="line">mongo mongodb://192.168.3.12:27017</div><div class="line">root@gym-virtual-machine:~# mongo 192.168.3.12:27017</div><div class="line">MongoDB shell version: 2.6.10</div><div class="line">connecting to: 192.168.3.12:27017/test</div></pre></td></tr></table></figure>
+<h5 id="5-PHP配置"><a href="#5-PHP配置" class="headerlink" title="5.PHP配置"></a>5.PHP配置</h5><p>引用：<a href="https://blog.csdn.net/weixin_36185028/article/details/76144859" target="_blank" rel="noopener">https://blog.csdn.net/weixin_36185028/article/details/76144859</a>  </p>
+<ol>
+<li>打开phpinfo 查看 nts（非线程） 还是 ts （线程），然后查看操作位数  </li>
+<li>下载对应的版本的php_mongodb.dll 文件<br>下载链接:<a href="https://pecl.php.net/package/mongodb/1.2.9/windows" target="_blank" rel="noopener">https://pecl.php.net/package/mongodb/1.2.9/windows</a><br>注: 下载需要翻墙  </li>
+<li>把文件解压出来 php_mongodb.dll 文件复制到php安装目录下的 ext 目录下(列子: phpStudy\php\php-7.0.12-nts\ext)  </li>
+<li>打开php.ini 配置文件增加行 ： extension=php_mongodb.dll  </li>
+<li>重启，再打开phpinfo() 查看是否有mongodb扩展，出现下图则安装成功</li>
+</ol>
+<h5 id="5-PHP连接测试"><a href="#5-PHP连接测试" class="headerlink" title="5.PHP连接测试"></a>5.PHP连接测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"> </div><div class="line">$manager = new MongoDB\Driver\Manager(&quot;mongodb://192.168.3.12:27017&quot;);</div><div class="line">print_r($manager);</div></pre></td></tr></table></figure>
+<p>输出连接信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b92</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b93</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b94</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b95</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://linjin101.com/2018/03/29/94岁芒格2小时全程无尿点访谈全记录：关于AI、加密货币、中国…一切投资热点都提到了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1917,180 +2070,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://linjin101.com/2017/03/21/Elon-Musk的第一性原理思考方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="linjin101">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://linjin101.com/pmp.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程序猿非猿的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/21/Elon-Musk的第一性原理思考方式/" itemprop="url">
-                  Elon Musk的第一性原理思考方式
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T20:43:00+08:00">
-                2017-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/互联网/" itemprop="url" rel="index">
-                    <span itemprop="name">互联网</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这里有必要先介绍ElonMusk:<br>Elon Musk出生于南非，18岁时移民美国，天才生意人，做过Paypal，环保跑车公司Tesla，空间探索技术公司的首席执行官兼首席技术官，特斯拉汽车的产品设计师。新公司是SpaceX，是一家私人火箭公司，正在用无可匹敌的低廉价格发射太空飞船。他的人生目标是将人类送达火星，并在火星上创办企业。</p>
-<p><img src="/images/v2-ff583ccb9430a404fe47dd430b7b3a16_b.jpg" alt="image"></p>
-<p>就是这样一位天才生意人提出了他在产品设计的一种思维方式，叫<strong><strong>“第一性原理”</strong></strong>：打破一切知识的藩篱，回归到事物本源去思考基础性的问题，在不参照经验或其它的情况下，从物质/世界的最本源出发思考事物/系统。这与他的物理学出身和工程师思维密不可分。</p>
-<p>　　“我相信有一种很好的思考架构，就是第一性原理，我们能够真正地去思考一些基础的真理，并且从中去论证，而不是类推。我们绝大多数时候都是类推地思考问题，也就是模仿别人做的事情并加以微幅更改。但当你想要做一些新的东西时，必须要运用第一性原理来思考。”Elon Musk（以下用马斯克代替）解释说。</p>
-<p>第一性原理是一个计算物理专业名词，广义的第一性原理计算指的是一切基于量子力学原理的计算。第一性原理就是从头计算，不需要任何参数，只需要一些基本的物理常量，就可以得到体系基态的基本性质的原理。</p>
-<p>马斯克幼年时代的偶像几乎都是伟大的科学家和工程师，比如尼古拉·特斯拉、爱迪生、爱因斯坦、牛顿、莎士比亚。特斯拉汽车就是为了向尼古拉·特斯拉致敬。</p>
-<p>　　当有媒体记者问他“觉得自己是工程师还是商人”时，他脱口而出：“我是一名工程师，我把大部分时间都花在制造和设计上。”是的，和大多数创业者不同，马斯克似乎一直在追求技术上的成就和突破，他有很大部分的成就感来自于技术问题的解决，而不完全是挣了多少钱。</p>
-<p>　　当马斯克坐拥大笔资金，决定进军太空时，他的工程师精神开始得到淋漓尽致的发挥。尽管进军太空的念头起源有些偶然，一开始看上去只是硅谷新贵们“烧钱”的游戏，但马斯克却非常当真。为了造火箭，马斯克研读了名为《火箭推进基本原理》的书。他虽然学的是物理，但并不是火箭专家。为了造火箭，他读遍了相关的大学教材。</p>
-<p>　　事实上，正是第一性原则的思维方式帮助马斯克解决了很多技术上的难题。电池是电动车最关键的部分，也是一直阻碍电动车产业化的关键技术。马斯克在思考电池问题时，将电池组分解成最基础的材料组成部分：碳、镍、铝、其他用于分离的聚合物还有一个盒子，这些都是电池组重要的组成元素，这是形成一块电池的最基本的事实。从那里，每个部分都可以优化、改进。这样，他造出了每千瓦小时80美元的廉价电池。</p>
-<p>　　SpaceX也一样。SpaceX发射火箭采用的实际上是成熟的技术和设备，创新之处在于生产流程成本最小化的改进。马斯克希望把商业发射市场的火箭发射费降低九成，而成本是核心的核心。美国航空航天专家霍华德表示：“马斯克的秘密不在技术，而在预算控制。”</p>
-<p>　　“第一性原理”的思维方式贯穿于马斯克的整个经营思路，“直销”也是其中的一个体现。如何让用户获得更实惠的价格和更好的用车体验？传统的方式是选择更好的经销商合作，而特斯拉选择让用户直接从制造商手中买车，减少中间代理环节，亲自掌控销售渠道，把价格压到最低。</p>
-<p>当然，“第一性原理”思维并非马斯克独有，能够走在科技最前沿，进行颠覆性创新的企业家，多少都具备这样的思维模式，例如苹果原CEO乔布斯。还记得苹果公司说要做手机的时候，那个时候手机市场已经很成熟了，诺基亚也是那时候的一代霸主，但乔布斯看准了未来的趋势：按键太占空间，将被多触点控屏代替即触摸屏，键盘都可以软件代替。那个时候黑莓手机很流行，几位团队成员主张配备键盘，但乔布斯否决了这种想法。物理键盘会占用屏幕空间，而且不如触摸屏键盘灵活、适应性强。“如果我们能用软件把键盘功能实现在屏幕上，那你想想，我们能在这个基础上作多少创新，这是一场革命。”乔布斯说。最后，产品出来，如果你想拨号，屏幕会显示数字键盘：想写东西，调出打字键盘。每种特定的活动都对应的按钮可以满足需求，但当用户观赏视频时，这些键盘都会消失，软件取代硬件，使得界面流畅灵活。Iphone的诞生，改变了手机世界的格局，更重要的是改变了人类世界的生活方式。</p>
-<p>在移动互联网大浪潮的今天，每个企业都活的很小心，因为一不小心，你的东西也许就被人颠覆了，又或许你创作出的产品对整个行业进行了颠覆，这个时代变化之快，令我们叹为观止。这是一个充满奇迹的时代。</p>
-<p>当下的中国，太多的创业者在用类似的方法做同样的产品，如果其中有人能够跳出既有模式的思维模式，用“第一性原理”来思考行业和产品，或许有无限的未来。<br><img src="/images/v2-cb203a31330e0ef28bfc584318e2ed70_b.jpg" alt="image"></p>
-<p>以下是ElonMusk在接受采访是的原话：“Well, I do think there’s a good framework forthinking. It‘s physics. You know, the sort of first principlesreasoning.Generally I think there are – what I mean by that is, boil thingsdown to their fundamental truths and reason up from there, as opposed to reasoning by analogy. Physics is really figuring out how todiscover new things that are counterintuitive, like quantum mechanics.”</p>
-<hr>
-<p> 第一性原理强调用少量的基本数据进行分析，简化。强调事实和少量假设，从问题的最本质出发，进行推理思考，而不是类比思考。不被过去的经验知识所干扰。</p>
-<p>关闭大脑，用直觉去感受，抓住事物的本质。</p>
-<p>第一性原理的思维方式强调独立思考，而不是人云亦云。强调质疑，不轻易接受否定的答案。</p>
-<hr>
-<p>“第一原理”由 2300 年前古希腊哲学家亚里士多德提出。他认为，在每一系统的探索中，存在第一原理，是一个最基本的命题或假设，不能被省略或删除，也不能被违反。亚里斯多德认为，第一原理有着至高无上的地位。他甚至表示“第一原理”充满“神性”。此处“神”已非一个特殊的族类，而是渗透于万物自然之中的一种“性质”—亚里士多德将此种性质看作是最高贵的。</p>
-<p>第一性原理还是一个量子力学的术语，意思是从头算起，无需任何经验参数，只用少量基本数据，做量子计算，得出分子机构和物理的性质。这与我们日常生活中惯用的类比推理方式迥异。类比也是一种重要的逻辑思维和推理法，指运用已经有的知识和经验将陌生的，不熟悉的的问题与平时熟悉的问题进行类比，尝试找到解决的方法。</p>
-<p>在创业之前，马斯克曾申请了斯坦福大学的应用物理学博士学位，有望成为一名物理学家。但没过几天他就放弃了。然而，物理学给他最大的影响则是“第一性原理思考模式”：一种不断追问事情本质思考模式。正如他说：“我觉得问题关键在于第一性原理而不是类比；生活中，我们推理的一般方法是类比；应用类比的方法，人们之所以做某些事情，是因为，人们曾经做过这些事情，或者其他人做过；但第一性原理思维下，人们会首先刨根问底最基础的事实真相，然后基于这些事实在进行推理论证。”</p>
-<pre><code>&apos;The normal way we conduct our lives is we reason by analogy,&apos; Elon Musk said.
-&apos;[With analogy] we are doing this because it&apos;s like something else thatwas done, 
-or it is like what other people are doing. [With first principles]you boil things 
-down to the most fundamental truths … and then reason up fromthere.&apos;
-(Musk)
-</code></pre><p>“第一性原理”:   </p>
-<pre><code>思维是一个典型的物理思维，一切是基于事实的、本源的，而非由于演化或竞争产生的市场的、现时的。这对于创新至关重要。在开发火箭项目SpaceX之初，马斯克团队碰到的最大问题就是如何降低火箭的成本。他们并没有仿照市场上常规的成本结构，而是对火箭从根源上进行了重新分析，哪些部件是火箭所必须的，这些部件重新整合后降到了市场价格的2%。惊人乎？
-
-同样的事情还发生在此后的特斯拉汽车。大家都知道，电池是新能源汽车的最主要部件之间，它的成本也是整个汽车最大的成本部分。当时，电池的成本大概是 600 美元／千瓦时。既然这么贵，很多企业在创新时，一般会把这当成一个既定要素，而往往不会去改变它。但按照马斯克的第一原理思维，他们会问：电池组到底是由什么材料组成的？这些电池原料的市场价格是多少？电池的组成包括碳、镍、铝和一些聚合物。如果我们从伦敦金属交易所购买这些原材料然后组合成电视，需要多少钱？他们做到了，将电池的成本降到了只要 80 美元／千瓦时。
-
-竞争容易使人迷失方向，而错失发现事物本质的机会。学习、工作也是一样，急迫、功利将只能获得皮毛。祝贺今年成功的高考学生，因为他们的深入学习过程，才刚刚开始。那些误入歧途的、已步入社会太久的我们，无论从事什么行业，干什么事情，多思考一些本源或本质的东西还是很有必要的。
-</code></pre><p>知乎:<a href="https://zhuanlan.zhihu.com/p/25625003" target="_blank" rel="noopener">特斯拉创始人伊隆·马斯克的思维方式：第一性原理</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2140,7 +2119,7 @@ down to the most fundamental truths … and then reason up fromthere.&apos;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

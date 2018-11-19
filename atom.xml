@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linjin101.com/"/>
-  <updated>2018-03-29T12:26:18.583Z</updated>
+  <updated>2018-11-19T09:54:27.868Z</updated>
   <id>http://linjin101.com/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mongodb3.4安装配置PHP测试</title>
+    <link href="http://linjin101.com/2018/11/19/mongodb3-4%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEphp%E6%B5%8B%E8%AF%95/"/>
+    <id>http://linjin101.com/2018/11/19/mongodb3-4安装配置php测试/</id>
+    <published>2018-11-19T08:34:45.000Z</published>
+    <updated>2018-11-19T09:54:27.868Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1.安装环境"></a>1.安装环境</h5><p>CentOS release 6.8 (Final)<br>Linux version 2.6.32-642.15.1.el6.x86_64  </p>
+<h5 id="2-mongodb-3-4官方安装方法"><a href="#2-mongodb-3-4官方安装方法" class="headerlink" title="2.mongodb 3.4官方安装方法"></a>2.mongodb 3.4官方安装方法</h5><p>安装文档<br><a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/</a>  </p>
+<h6 id="（1）配置包管理系统-yum"><a href="#（1）配置包管理系统-yum" class="headerlink" title="（1）配置包管理系统(yum)"></a>（1）配置包管理系统(yum)</h6><p>创建一个/etc/yum.repos.d/mongodb-org-4.0.repo文件，以便您可以使用以下方法直接安装MongoDByum:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[mongodb-org-4.0]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/</div><div class="line">gpgcheck=1</div><div class="line">enabled=1</div><div class="line">gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc</div></pre></td></tr></table></figure></p>
+<h6 id="2-安装MongoDB包"><a href="#2-安装MongoDB包" class="headerlink" title="(2)安装MongoDB包"></a>(2)安装MongoDB包</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："><a href="#3-要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：" class="headerlink" title="(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示："></a>(3)要安装MongoDB的特定版本，请分别指定每个组件包，并将版本号附加到包名中，如下面的示例所示：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org-4.0.4 mongodb-org-server-4.0.4 mongodb-org-shell-4.0.4 mongodb-org-mongos-4.0.4 mongodb-org-tools-4.0.4</div></pre></td></tr></table></figure>
+<h6 id="4-安装MongoDB包和相关工具"><a href="#4-安装MongoDB包和相关工具" class="headerlink" title="(4)安装MongoDB包和相关工具"></a>(4)安装MongoDB包和相关工具</h6><p>要安装MongoDB的最新稳定版本，发出以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install -y mongodb-org</div></pre></td></tr></table></figure></p>
+<h6 id="5-启动MongoDB"><a href="#5-启动MongoDB" class="headerlink" title="(5)启动MongoDB"></a>(5)启动MongoDB</h6><p>您可以启动单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod start</div></pre></td></tr></table></figure>
+<h6 id="6-验证MongoDB是否已成功启动"><a href="#6-验证MongoDB是否已成功启动" class="headerlink" title="(6)验证MongoDB是否已成功启动"></a>(6)验证MongoDB是否已成功启动</h6><p>您可以验证单神通过检查日志文件的内容，进程已成功启动。/var/log/mongoDB/mongod.log行读数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] waiting for connections on port &lt;port&gt;</div></pre></td></tr></table></figure>
+<p>哪里<port>中配置的端口吗？/etc/mongod.conf, 27017默认情况下。<br>还可以通过发出以下命令，确保MongoDB将在系统重新启动之后启动：  </port></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chkconfig mongod on</div></pre></td></tr></table></figure>
+<h6 id="7-停止mongodb"><a href="#7-停止mongodb" class="headerlink" title="(7)停止mongodb"></a>(7)停止mongodb</h6><p>根据需要，您可以停止单神通过发出以下命令来处理：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mongod stop</div></pre></td></tr></table></figure>
+<h5 id="3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题"><a href="#3-解决-libc-so-6-version-GLIBC-2-14-not-found-问题" class="headerlink" title="3.解决 libc.so.6: version GLIBC_2.14  not found 问题"></a>3.解决 libc.so.6: version GLIBC_2.14  not found 问题</h5><p>试图运行程序，提示 ibc.so.6: version GLIBC_2.14  not found ,<br>原因是系统的glibc版本太低，软件编译时使用了较高版本的glibc引起的：<br>问题Centos 自动更新glibc-2.14</p>
+<h6 id="1-查看系统glibc支持的版本："><a href="#1-查看系统glibc支持的版本：" class="headerlink" title="1.查看系统glibc支持的版本："></a>1.查看系统glibc支持的版本：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div><div class="line">rpm -qa |grep glibc</div></pre></td></tr></table></figure>
+<p>可以看到最高只支持2.12版本，所以考虑编译解决这个问题<br>到<a href="http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz" target="_blank" rel="noopener">http://www.gnu.org/software/libc/的目录http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz下载最新版本，我这里下载了glibc-2.14.tar.xz</a> 这个版本<br>注意：解压的目录和安装的目录放在一起，这样会冲突  </p>
+<h6 id="2-glibc-2-14安装"><a href="#2-glibc-2-14安装" class="headerlink" title="2.glibc-2.14安装"></a>2.glibc-2.14安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">wget http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.xz</div><div class="line">tar -zxvf glibc-2.14.tar.gz </div><div class="line">cd glibc-2.14</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">../configure --prefix=/usr/local/glibc-2.14</div><div class="line">make -j4</div><div class="line">make install</div><div class="line">问题：/root/glibc-2.14/build/elf/ldconfig: Can&apos;t open configuration file /usr/local/glibc-2.14/etc/ld.so.conf: No such file or directory</div><div class="line">解决：</div><div class="line">cp  /etc/ld.so.c* /usr/local/glibc-2.14/etc/</div></pre></td></tr></table></figure>
+<h6 id="3、创建软链接"><a href="#3、创建软链接" class="headerlink" title="3、创建软链接"></a>3、创建软链接</h6><p>1、删除原来软链<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf /lib64/libc.so.6</div></pre></td></tr></table></figure></p>
+<p>2、解决补救问题  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LD_PRELOAD=/usr/local/glibc-2.14/lib/libc-2.14.so ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>因为操作删除软链接后系统无法操作任何命令，我们需要复制上命令操作后才可以。<br>3、创建新软链接  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/glibc-2.14/lib/libc-2.14.so /lib64/libc.so.6</div></pre></td></tr></table></figure>
+<p>第四、查看当前新的glibc版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">strings /lib64/libc.so.6 |grep GLIBC_</div></pre></td></tr></table></figure></p>
+<h5 id="4-Mongodb配置"><a href="#4-Mongodb配置" class="headerlink" title="4.Mongodb配置"></a>4.Mongodb配置</h5><p>设置IP：0.0.0.0 否则内网访问不了，测试用直接打开。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">vi /etc/mongod.conf</div><div class="line"></div><div class="line">network interfaces</div><div class="line">net:</div><div class="line">port: 27017</div><div class="line">bindIp: 0.0.0.0 #127.0.0.1  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the ne        t.bindIpAll setting.</div><div class="line"></div><div class="line">开启mongodb</div><div class="line">service mongod start</div><div class="line">关闭mongodb</div><div class="line">service mongod stop</div><div class="line">重启mongodb</div><div class="line">service mongod restart</div><div class="line"></div><div class="line">mongodb client访问命令：</div><div class="line">mongo mongodb://192.168.3.12:27017</div><div class="line">root@gym-virtual-machine:~# mongo 192.168.3.12:27017</div><div class="line">MongoDB shell version: 2.6.10</div><div class="line">connecting to: 192.168.3.12:27017/test</div></pre></td></tr></table></figure>
+<h5 id="5-PHP配置"><a href="#5-PHP配置" class="headerlink" title="5.PHP配置"></a>5.PHP配置</h5><p>引用：<a href="https://blog.csdn.net/weixin_36185028/article/details/76144859" target="_blank" rel="noopener">https://blog.csdn.net/weixin_36185028/article/details/76144859</a>  </p>
+<ol>
+<li>打开phpinfo 查看 nts（非线程） 还是 ts （线程），然后查看操作位数  </li>
+<li>下载对应的版本的php_mongodb.dll 文件<br>下载链接:<a href="https://pecl.php.net/package/mongodb/1.2.9/windows" target="_blank" rel="noopener">https://pecl.php.net/package/mongodb/1.2.9/windows</a><br>注: 下载需要翻墙  </li>
+<li>把文件解压出来 php_mongodb.dll 文件复制到php安装目录下的 ext 目录下(列子: phpStudy\php\php-7.0.12-nts\ext)  </li>
+<li>打开php.ini 配置文件增加行 ： extension=php_mongodb.dll  </li>
+<li>重启，再打开phpinfo() 查看是否有mongodb扩展，出现下图则安装成功</li>
+</ol>
+<h5 id="5-PHP连接测试"><a href="#5-PHP连接测试" class="headerlink" title="5.PHP连接测试"></a>5.PHP连接测试</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"> </div><div class="line">$manager = new MongoDB\Driver\Manager(&quot;mongodb://192.168.3.12:27017&quot;);</div><div class="line">print_r($manager);</div></pre></td></tr></table></figure>
+<p>输出连接信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b92</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d1a54902e5e6c007b93</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b94</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Ceres</div><div class="line">    [size] =&gt; 946</div><div class="line">    [distance] =&gt; 2.766</div><div class="line">)</div><div class="line">stdClass Object</div><div class="line">(</div><div class="line">    [_id] =&gt; MongoDB\BSON\ObjectID Object</div><div class="line">        (</div><div class="line">            [oid] =&gt; 5bf26d3954902e5e6c007b95</div><div class="line">        )</div><div class="line"></div><div class="line">    [name] =&gt; Vesta</div><div class="line">    [size] =&gt; 525</div><div class="line">    [distance] =&gt; 2.362</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;1-安装环境&quot;&gt;&lt;a href=&quot;#1-安装环境&quot; class=&quot;headerlink&quot; title=&quot;1.安装环境&quot;&gt;&lt;/a&gt;1.安装环境&lt;/h5&gt;&lt;p&gt;CentOS release 6.8 (Final)&lt;br&gt;Linux version 2.6.32-642
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>94岁芒格2小时全程无尿点访谈全记录：关于AI、加密货币、中国…一切投资热点都提到了</title>
@@ -984,6 +1038,36 @@ push代码到服务器 git push origin master
   </entry>
   
   <entry>
+    <title>在github上创建新分支</title>
+    <link href="http://linjin101.com/2017/03/07/%E5%9C%A8github%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
+    <id>http://linjin101.com/2017/03/07/在github上创建新分支/</id>
+    <published>2017-03-06T16:33:14.000Z</published>
+    <updated>2018-03-29T08:41:03.189Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/guang11cheng/article/details/37757201</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://blog.csdn.net/top_code/article/details/51931916</a><br><a href="http://note.youdao.com/" target="_blank" rel="noopener">http://www.cnblogs.com/horanly/p/6265182.html
+</a></p>
+<p>在github上创建仓库：<br><code>Create a new repository on the command line</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git init</div><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div><div class="line">git remote add origin https://github.com/BrentHuang/MyRepo.git</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>在本地新建一个分支： <code>git branch Branch1</code><br>切换到你的新分支: <code>git checkout Branch1</code><br>将新分支发布在github上： <code>git push origin Branch1</code><br>在本地删除一个分支： <code>git branch -d Branch1</code><br>在github远程端删除一个分支： <code>git push origin :Branch1</code><br>(分支名前的冒号代表删除)</p>
+<p>直接使用git pull和git push的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Git branch --set-upstream-to=origin/master master </div><div class="line">git branch --set-upstream-to=origin/ThirdParty ThirdParty</div><div class="line">git config --global push.default matching</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://note.youdao.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/guang11cheng/article/details/37757201&lt;/a&gt;&lt;br&gt;&lt;a hre
+    
+    </summary>
+    
+      <category term="git" scheme="http://linjin101.com/categories/git/"/>
+    
+    
+      <category term="github" scheme="http://linjin101.com/tags/github/"/>
+    
+      <category term="建新分支" scheme="http://linjin101.com/tags/%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>blog-frist hexo配置问题</title>
     <link href="http://linjin101.com/2017/03/07/blog-frist%20hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
     <id>http://linjin101.com/2017/03/07/blog-frist hexo配置问题/</id>
@@ -1012,73 +1096,6 @@ push代码到服务器 git push origin master
     
     
       <category term="hexo配置问题" scheme="http://linjin101.com/tags/hexo%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo部署后，CNAME会被自动删除，怎么办？</title>
-    <link href="http://linjin101.com/2017/03/07/hexo%E9%83%A8%E7%BD%B2%E5%90%8E%EF%BC%8CCNAME%E4%BC%9A%E8%A2%AB%E8%87%AA%E5%8A%A8%E5%88%A0%E9%99%A4%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/"/>
-    <id>http://linjin101.com/2017/03/07/hexo部署后，CNAME会被自动删除，怎么办？/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2018-03-29T08:41:03.187Z</updated>
-    
-    <content type="html"><![CDATA[<p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。</p>
-<p>如图：<br>CNAME README都可以放在Source文件夹下，每次上传就不会消失了</p>
-<p><img src="https://pic4.zhimg.com/93a311be4f651f8cd639233e544b826b_b.jpg" alt="image"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等。&lt;/p&gt;
-&lt;p&gt;如图：&lt;br&gt;CNAME README都可以放在Source文件夹下，每次上传就不会消失了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://linjin101.com/categories/hexo/"/>
-    
-    
-      <category term="hexo部署" scheme="http://linjin101.com/tags/hexo%E9%83%A8%E7%BD%B2/"/>
-    
-      <category term="CNAME" scheme="http://linjin101.com/tags/CNAME/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML4和HTML5的10个关键区别</title>
-    <link href="http://linjin101.com/2017/03/07/HTML4%20%E5%92%8C%20HTML5%20%E7%9A%8410%E4%B8%AA%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB/"/>
-    <id>http://linjin101.com/2017/03/07/HTML4 和 HTML5 的10个关键区别/</id>
-    <published>2017-03-06T16:33:14.000Z</published>
-    <updated>2018-03-29T08:41:03.154Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://static.oschina.net/uploads/files/html5.png" alt="image">HTML5是HTML标准的下一个版本。<br>越来越多的程序员开始HTML5来构建网站。 如果你同时使用HTML4和HTML5的话，你会发现用HTML5从头构建，<br>比从HTML4迁移到HTML5要方便很多。 虽然HTML5没有完全颠覆HTML4，它们还是有很多相似之处，但是它们</p>
-<h2 id="也有一些关键的不同。本文就列出了它们之间10个关键的不同之处。"><a href="#也有一些关键的不同。本文就列出了它们之间10个关键的不同之处。" class="headerlink" title="也有一些关键的不同。本文就列出了它们之间10个关键的不同之处。"></a>也有一些关键的不同。本文就列出了它们之间10个关键的不同之处。</h2><h4 id="1-HTML5-标准还在制定中"><a href="#1-HTML5-标准还在制定中" class="headerlink" title="1. HTML5 标准还在制定中"></a>1. HTML5 标准还在制定中</h4><p>首先要注意的是，HTML5虽然现在很火，但是HTML5标准还在制定中，标准仍在改变。HTML4已经10多年了，不会有任何改变了。</p>
-<h4 id="2-简化的语法"><a href="#2-简化的语法" class="headerlink" title="2. 简化的语法"></a>2. 简化的语法</h4><p>HTML5简化了很多细微的语法，例如doctype的声明，你只需要写!doctype html就行了。HTML5与HTML5，XHTML1兼容，但是与SGML不兼容。</p>
-<h4 id="3-canvas-标签替代Flash"><a href="#3-canvas-标签替代Flash" class="headerlink" title="3. canvas 标签替代Flash"></a>3. canvas 标签替代Flash</h4><p>Flash给很多Web开发者带来了麻烦，要在网页上播放Flash需要一堆代码和插件。canvas标签使得开发者只要使用一个标签就 能和用户产生UI交互。虽然目前canvas标签还不能实现Flash的所有功能，但是很快canvas就会让 Flash看起来老土，哈哈！</p>
-<h4 id="4-新增-heade-和-footer-标签"><a href="#4-新增-heade-和-footer-标签" class="headerlink" title="4. 新增 heade 和 footer 标签"></a>4. 新增 heade 和 footer 标签</h4><p>HTML5设计的一个原则是更好的体现网站的语义性，所以增加了header和footer这样的标签，用来明确表示网页的结构。</p>
-<h4 id="5-新增-section-和-article-标签"><a href="#5-新增-section-和-article-标签" class="headerlink" title="5. 新增 section 和 article 标签"></a>5. 新增 section 和 article 标签</h4><p>与 header , footer类似，section和article也有利于清晰化网页的结构，更有利于SEO。</p>
-<h4 id="6-新增-menu-和-figure-标签"><a href="#6-新增-menu-和-figure-标签" class="headerlink" title="6. 新增 menu 和 figure 标签"></a>6. 新增 menu 和 figure 标签</h4><p>menu可以被用于创建传统的菜单，也可以用于工具栏和上下文菜单。figure标签使得网页文字和图片的排版更专业。</p>
-<h4 id="7-新增-audio-和-video-标签"><a href="#7-新增-audio-和-video-标签" class="headerlink" title="7. 新增 audio 和 video 标签"></a>7. 新增 audio 和 video 标签</h4><p>这两个标签可能是HTML5里面最有用的两个标签了。顾名思义，这两个标签是用来播放音频和视频的。</p>
-<h4 id="8-全新的表单"><a href="#8-全新的表单" class="headerlink" title="8. 全新的表单"></a>8. 全新的表单</h4><p>HTML5对 form 和 forminput 标签进行了大量修改，添加了很多新的属性，也修改了很多属性。</p>
-<h4 id="9-删除-b-和-font-标签"><a href="#9-删除-b-和-font-标签" class="headerlink" title="9. 删除 b 和 font 标签"></a>9. 删除 b 和 font 标签</h4><p>这个改进我还无法理解。我不认为删除这两个标签对代码的改进有很大的帮助。官方的解释是应该用CSS来替代这两个标签。但我还是觉得对于简单的文本，这两个标签还是很方便的。</p>
-<h4 id="10-删除-frame-center-big-标签"><a href="#10-删除-frame-center-big-标签" class="headerlink" title="10. 删除 frame , center , big 标签"></a>10. 删除 frame , center , big 标签</h4><p>我已经记不得上次是什么时候使用这些标签了。</p>
-<p>以上十点只是HTML5和HTML4差别的很小一部分，最<br>新最全的HTML5-HTML4对比信息请看 <a href="http://dev.w3.org/html5/html4-differences/" target="_blank" rel="noopener">http://dev.w3.org/html5/html4-differences/</a></p>
-<hr>
-<p>文章转载自 开源中国社区 [<a href="http://www.oschina.net" target="_blank" rel="noopener">http://www.oschina.net</a>]<br>本文标题：HTML4 和 HTML5 的10个关键区别<br>本文地址：<a href="https://www.oschina.net/news/22219/html4-html5-differences" target="_blank" rel="noopener">https://www.oschina.net/news/22219/html4-html5-differences</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://static.oschina.net/uploads/files/html5.png&quot; alt=&quot;image&quot;&gt;HTML5是HTML标准的下一个版本。&lt;br&gt;越来越多的程序员开始HTML5来构建网站。 如果你同时使用HTML4和HTML5
-    
-    </summary>
-    
-      <category term="HTML" scheme="http://linjin101.com/categories/HTML/"/>
-    
-    
-      <category term="HTML4" scheme="http://linjin101.com/tags/HTML4/"/>
-    
-      <category term="HTML5" scheme="http://linjin101.com/tags/HTML5/"/>
     
   </entry>
   
